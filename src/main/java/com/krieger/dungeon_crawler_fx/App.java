@@ -9,31 +9,29 @@ import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
 import javafx.stage.Stage;
-
 import java.io.IOException;
 
-import static com.krieger.dungeon_crawler_fx.ButtonController.*;
+import static com.krieger.dungeon_crawler_fx.HelloController.*;
+
 
 public class App extends Application {
 
+    Insets inset = new Insets(20);
     public String imgPath = "file:./images/start_scene.jpg";
-
     public Image img = new Image(imgPath);
+    public ImageView imageView = new ImageView(img);
 
 
     public StackPane root = new StackPane();
     public VBox vBox = new VBox();
-
-    public Button inventoryBtn = new Button("Inventory!");
-
-    public ImageView imageView = new ImageView(img);
-
     public HBox btnBox = new HBox();
 
-    Insets inset = new Insets(20);
+    public StackPane stack = new StackPane();
 
-
+    public static Button actionBtn = new Button("Action!");
+    public Button inventoryBtn = new Button("Inventory!");
 
 
     @Override
@@ -49,11 +47,16 @@ public class App extends Application {
                 // image-settings
         imageView.setFitHeight(800);
 
+        Text beginning = textAnimation();
+
+
 
                 // Assembly
         btnBox.getChildren().addAll(actionBtn,inventoryBtn);
 
-        vBox.getChildren().addAll(imageView,btnBox);
+        stack.getChildren().addAll(imageView,beginning);
+
+        vBox.getChildren().addAll(stack,btnBox);
         root.setAlignment(Pos.CENTER);
 
         root.getChildren().addAll(vBox);
@@ -63,7 +66,7 @@ public class App extends Application {
 
 
         actionBtn.setOnAction(actionEvent  -> {
-            
+
         });
 
 
