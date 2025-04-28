@@ -1,2 +1,4 @@
 # Dungeon_Crawler_FX
-Advanture game made with JavaFX
+Advanture game made with JavaFX  
+work in progress!  
+
