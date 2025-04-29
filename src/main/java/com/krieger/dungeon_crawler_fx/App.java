@@ -7,10 +7,14 @@ public class App extends Application {
 
     @Override
     public void start(Stage stage) {
-        // Set the intro scene
+
+
+                    // Set the intro scene
         stage.setScene(IntroController.getIntroScene(stage));
         stage.setTitle("Dungeon Adventure");
         stage.show();
+
+
     }
 
     public static void main(String[] args) {

@@ -34,7 +34,8 @@ public class IntroController {
 
 
     public static Scene getIntroScene(Stage stage) {
-        // Image setup
+
+                    // Image setup
         String imgPath = "file:./images/start_scene.jpg";
         Image img = new Image(imgPath);
         ImageView imageView = new ImageView(img);
@@ -44,11 +45,11 @@ public class IntroController {
         StackPane root = new StackPane();
         root.getChildren().add(imageView);
 
-        // Create the initial text node
+                    // Create the initial text node
         Text storyText = createText("");
         root.getChildren().add(storyText);
 
-        // Sequential animation for the text segments
+                    // Sequential animation for the text segments
         SequentialTransition sequentialTransition = new SequentialTransition();
         for (String segment : textSegments) {
             FadeTransition fadeIn = new FadeTransition(Duration.seconds(2), storyText);
@@ -61,7 +62,9 @@ public class IntroController {
             fadeOut.setFromValue(1);
             fadeOut.setToValue(0);
 
-            fadeIn.setOnFinished(event -> storyText.setText(segment)); // Update text content
+            fadeIn.setOnFinished(event -> storyText.setText(segment));
+
+                        // Update text content
             sequentialTransition.getChildren().addAll(fadeIn, pause, fadeOut);
         }
 

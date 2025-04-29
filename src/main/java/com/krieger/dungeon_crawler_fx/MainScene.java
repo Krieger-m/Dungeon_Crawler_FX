@@ -12,26 +12,27 @@ import javafx.stage.Stage;
 public class MainScene {
 
     public static Scene getMainScene(Stage stage) {
-        // Image setup
+
+                    // Image setup
         String imgPath = "file:./images/start_scene.jpg";
         Image img = new Image(imgPath);
         ImageView imageView = new ImageView(img);
         imageView.setFitHeight(800);
         imageView.setPreserveRatio(true);
 
-        // Layout setup
+                    // Layout setup
         StackPane root = new StackPane();
         VBox vBox = new VBox();
         HBox btnBox = new HBox();
 
-        // Buttons
+                    // Buttons
         Button actionBtn = new Button("Action!");
         Button inventoryBtn = new Button("Inventory!");
 
         btnBox.getChildren().addAll(actionBtn, inventoryBtn);
         btnBox.setSpacing(20);
 
-        // Add elements to layout
+                    // Add elements to layout
         vBox.getChildren().addAll(imageView, btnBox);
         root.getChildren().add(vBox);
 
