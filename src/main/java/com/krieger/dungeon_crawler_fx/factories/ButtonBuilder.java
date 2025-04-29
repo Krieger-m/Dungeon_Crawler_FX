@@ -4,6 +4,8 @@ import com.krieger.dungeon_crawler_fx.App;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.text.Font;
+
 import java.util.ArrayList;
 
 public class ButtonBuilder extends App {
@@ -73,6 +75,8 @@ public class ButtonBuilder extends App {
         setBtnText(text);
         this.type=text.toLowerCase()+"Btn";
         Button newBtn = new Button(getBtnText());
+        newBtn.setFont(Font.font(16));
+            //newBtn.setPrefSize(80,40);
         colorSettingsDark(newBtn);
         newBtn.setOnMouseEntered(mouseEvent ->{
             colorSettingsLight(newBtn);

@@ -29,6 +29,11 @@ public class App extends Application {
 
 
         try{
+
+
+
+
+
                 //NOTE Elements
             StackPane root = new StackPane();
             VBox mainContainer = new VBox();
@@ -72,7 +77,7 @@ public class App extends Application {
             root.getChildren().add(mainContainer);
 
             root.setAlignment(Pos.TOP_CENTER);
-            Scene currentScene = new Scene(root,1024,954);
+            Scene currentScene = new Scene(root,800,954);
 
                 //NOTE Stage-stuff
 

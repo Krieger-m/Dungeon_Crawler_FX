@@ -1,9 +1,9 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
 import javafx.scene.Node;
-import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import com.krieger.dungeon_crawler_fx.App;
 
 public class ImageBuilder extends Node {
 
@@ -28,8 +28,7 @@ public class ImageBuilder extends Node {
         Image img = new Image(this.imgPath);
         ImageView imgView = new ImageView(img);
         imgView.setFitHeight(800);
-        img.isPreserveRatio();
-
+        imgView.setPreserveRatio(true);
         return imgView;
     }
 
