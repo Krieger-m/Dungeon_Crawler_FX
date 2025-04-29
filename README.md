@@ -10,4 +10,8 @@ will try a new concept and implement design patterns, next steps:
 ## upload_07  
 implemented a new structure and try to follow creational design patterns along the process.   
 lots of work still to do :)  
-
+  
+## upload_08  (current)
+major color update and further structural developments  
+according to the implemented changes  
+  
