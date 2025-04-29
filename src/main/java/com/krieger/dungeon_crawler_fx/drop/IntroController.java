@@ -18,7 +18,7 @@ import java.util.List;
 public class IntroController {
 
     // Prepare text segments
-    private static final List<String> textSegments = List.of(
+    public static final List<String> textSegments = List.of(
             "You wake up inside a cave...",
             "Neither can you recall how and why you ended up down here...",
             "Nor can you remember your own name..."
