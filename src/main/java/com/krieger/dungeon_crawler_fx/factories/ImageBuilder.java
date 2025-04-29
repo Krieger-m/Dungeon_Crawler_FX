@@ -1,12 +1,17 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
 import javafx.scene.Node;
+import javafx.scene.control.Button;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class ImageBuilder extends Node {
+
                 // Variables
     private String imgPath = " ";
+
+                // TODO ImageList will be added here
+    //
 
 
 
