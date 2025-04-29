@@ -1,4 +1,13 @@
 # Dungeon_Crawler_FX
 Advanture game made with JavaFX  
 work in progress!  
+  
+## upload_06  
+major changes... still struggling with the scene progression.  
+will try a new concept and implement design patterns, next steps:  
+- factory concept explore and implement  
+  
+## upload_07  
+implemented a new structure and try to follow creational design patterns along the process.   
+lots of work still to do :)  
 
