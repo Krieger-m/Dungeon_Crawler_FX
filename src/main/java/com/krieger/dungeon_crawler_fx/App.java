@@ -6,18 +6,11 @@ import javafx.stage.Stage;
 public class App extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws Exception {
 
-
-                    // Set the intro scene
-        stage.setScene(IntroController.getIntroScene(stage));
-        stage.setTitle("Dungeon Adventure");
-        stage.show();
 
 
     }
 
-    public static void main(String[] args) {
-        launch();
-    }
+
 }

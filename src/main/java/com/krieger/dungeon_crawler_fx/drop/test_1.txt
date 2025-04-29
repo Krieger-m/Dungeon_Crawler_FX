@@ -1,0 +1,98 @@
+package com.krieger.dungeon_crawler_fx;
+
+import javafx.application.Application;
+import javafx.geometry.Insets;
+import javafx.geometry.Pos;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.layout.*;
+import javafx.scene.paint.Color;
+import javafx.scene.text.Text;
+import javafx.stage.Stage;
+import java.io.IOException;
+
+import static com.krieger.dungeon_crawler_fx.IntroController.*;
+
+
+public class App extends Application {
+
+                // Standard insets
+    Insets inset = new Insets(20);
+
+                // Image elements and container
+    public String imgPath = "file:./images/start_scene.jpg";
+    public Image img = new Image(imgPath);
+    public ImageView imageView = new ImageView(img);
+
+                // Container Elements
+    public StackPane root = new StackPane();
+    public VBox vBox = new VBox();
+    public HBox btnBox = new HBox();
+
+                // new stackPane for the textAnimation stuff
+    public StackPane stack = new StackPane();
+
+
+
+
+    @Override
+    public void start(Stage stage) throws IOException {
+
+                // Root-background setting
+        root.setBackground(new Background(new BackgroundFill(Color.web("#4d4d4d"),null,null)));
+
+                // Button-Box settings
+        btnBox.setPadding(inset);
+        btnBox.setSpacing(20);
+
+                // image-settings
+        imageView.setFitHeight(800);
+
+                //
+        Text beginning = textAnimation(textSegments.get(0));
+
+
+
+                // Assembly
+                    //Image with animated text
+        stack.getChildren().addAll(imageView,beginning);
+
+                    //Button-Box
+        btnBox.getChildren().addAll(actionBtn,inventoryBtn);
+
+                    //Main assembly using a vBox to get the elements in order
+        vBox.getChildren().addAll(stack,btnBox);
+
+
+        root.setAlignment(Pos.CENTER);
+
+        root.getChildren().addAll(vBox);
+
+                // TODO Inventory stuff here...
+
+
+
+        actionBtn.setOnAction(actionEvent  -> {
+
+        });
+
+
+                // Scene-assembly
+        Scene scene = new Scene(root, 1024, 1000);
+
+
+        Stage stage2 = new Stage();
+                // Stage-assembly
+        stage.setTitle("Dungeon_Adventure+");
+        stage.setScene(scene);
+        stage.show();
+    }
+
+
+
+    public static void main(String[] args) {
+        launch();
+    }
+}
