@@ -7,7 +7,7 @@ import javafx.scene.image.ImageView;
 
 public class ImageBuilder extends Node {
 
-                // Variables
+                //NOTE Variables
     private String imgPath = " ";
 
                 // TODO ImageList will be added here
@@ -15,7 +15,7 @@ public class ImageBuilder extends Node {
 
 
 
-                // Constructors
+                //NOTE Constructors
                     // ImageView Constructor, returns ImageView type for further
                     // use in SceneHandler or in Main App???
                     // we will see where the journey takes us (°͜°)
@@ -23,7 +23,7 @@ public class ImageBuilder extends Node {
         this.imgPath=path;
     }
 
-                // Methods for returning elements
+                //NOTE Methods for returning elements
     public ImageView ImageViewBuilder() {
         Image img = new Image(this.imgPath);
         ImageView imgView = new ImageView(img);
@@ -33,7 +33,7 @@ public class ImageBuilder extends Node {
         return imgView;
     }
 
-                // getter/setter
+                //NOTE getter/setter
                     // imgPath
     public String getImgPath() {
         return imgPath;

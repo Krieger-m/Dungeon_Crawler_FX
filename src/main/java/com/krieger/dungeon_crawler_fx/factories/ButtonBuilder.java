@@ -4,27 +4,25 @@ import com.krieger.dungeon_crawler_fx.App;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
-
-import java.lang.reflect.Type;
 import java.util.ArrayList;
 
 public class ButtonBuilder extends App {
 
-            // Variables
+            //NOTE Variables
 
     public ArrayList<Button> btnList = new ArrayList<>();
     private String btnText;
     String type;
 
 
-            // Constructor
+            //NOTE Constructor
 
 
     public ButtonBuilder() {
 
     }
 
-            //Methods
+            //NOTE Methods
 
                 // adding buttons to the btnList
     public void addBtnsToList(String[] arr){
@@ -33,26 +31,61 @@ public class ButtonBuilder extends App {
         }
     }
 
+                // Button color: Standard dark-settings
+    public void colorSettingsDark(Button btn){
+        btn.setBorder(new Border(
+                new BorderStroke(
+                        colorCode.get(4),
+                        BorderStrokeStyle.SOLID,
+                        new CornerRadii(3),
+                        new BorderWidths(1),null)
+        ));
+        btn.setBackground(new Background(
+                new BackgroundFill(
+                        colorCode.get(2),
+                        new CornerRadii(3),
+                        null)));
+        btn.setTextFill(colorCode.get(5));
+
+    }
+
+                // Button color: Standard hover-light-settings
+    public void colorSettingsLight(Button btn){
+        btn.setBorder(new Border(
+                new BorderStroke(
+                        colorCode.get(1),
+                        BorderStrokeStyle.SOLID,
+                        new CornerRadii(3),
+                        new BorderWidths(1),null)
+        ));
+        btn.setBackground(new Background(
+                new BackgroundFill(
+                        colorCode.get(4),
+                        new CornerRadii(3),
+                        null)
+        ));
+        btn.setTextFill(colorCode.get(3));
+
+    }
+
                 // returns a new button and sets String type to "actionBtn" for example
     public Button returnNewBtn(String text){
         setBtnText(text);
         this.type=text.toLowerCase()+"Btn";
         Button newBtn = new Button(getBtnText());
-        newBtn.setBorder(new Border(
-                new BorderStroke(
-                        Color.ANTIQUEWHITE,
-                        BorderStrokeStyle.SOLID,
-                        new CornerRadii(2),
-                        new BorderWidths(1),null)
-        ));
-        newBtn.setBackground(new Background(new BackgroundFill(Color.web(colorCode.get(2)),null,null)));
-        newBtn.setTextFill(Color.web(colorCode.get(5)));
+        colorSettingsDark(newBtn);
+        newBtn.setOnMouseEntered(mouseEvent ->{
+            colorSettingsLight(newBtn);
+        });
+        newBtn.setOnMouseExited(mouseEvent -> {
+            colorSettingsDark(newBtn);
+        });
 
         return newBtn;
     }
 
 
-    // Getters/Setters
+        //NOTE Getters/Setters
                 // - btnText - but I guess they just sit here in their corner unused for now ...
     public String getBtnText() {
         return btnText;

@@ -6,79 +6,86 @@ import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
+import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
-
-import java.util.ArrayList;
 import java.util.Map;
 
 public class App extends Application {
 
-                // Color Codes
-    public final Map<Integer,String> colorCode= Map.of(
-            1,"#121217",
-            2,"#2E3339",
-            3,"#112130",
-            4,"#B6D0D1",
-            5,"#DFF2EF"
+                //NOTE Color Codes
+    public final Map<Integer, Paint> colorCode= Map.of(
+            1,Color.web("#121217"),
+            2,Color.web("#2E3339"),
+            3,Color.web("#112130"),
+            4,Color.web("#B6D0D1"),
+            5,Color.web("#DFF2EF")
     );
 
     @Override
     public void start(Stage stage) throws Exception {
 
 
-                // Elements
-        StackPane root = new StackPane();
-        VBox mainContainer = new VBox();
-        HBox btnBox = new HBox();
+        try{
+                //NOTE Elements
+            StackPane root = new StackPane();
+            VBox mainContainer = new VBox();
+            HBox btnBox = new HBox();
 
-                // Background Color
-        root.setBackground(new Background(new BackgroundFill(Color.web(colorCode.get(3)),null,null)));
+                //NOTE Background Color
+            root.setBackground(new Background(new BackgroundFill(colorCode.get(3),null,null)));
 
-                // ImageBuilder-test
+                //NOTE ImageBuilder-test
                     // will move it to the SceneFactory or SceneHandler or
                     // whatever I will call it later
-        ImageBuilder ib = new ImageBuilder("file:./images/start_scene.jpg");
+            ImageBuilder ib = new ImageBuilder("file:./images/start_scene.jpg");
 
-        ImageView imageView = ib.ImageViewBuilder();
+            ImageView imageView = ib.ImageViewBuilder();
 
 
 
-                // ButtonBuilder-test
+                //NOTE ButtonBuilder-test
                     // same as the other 2 tests
-        ButtonBuilder bb = new ButtonBuilder();
+            ButtonBuilder bb = new ButtonBuilder();
 
-                // Button-names stored in a String array
-        String[] btnNameArr= {"Search", "Action", "Inventory"};
+                //NOTE Button-names stored in a String array
+            String[] btnNameArr= {"Search", "Action", "Inventory"};
 
 
-        bb.addBtnsToList(btnNameArr);
+            bb.addBtnsToList(btnNameArr);
 
-                // Scene-assembly or SceneAssembly-test
+                //NOTE Scene-assembly or SceneAssembly-test
 
                     // will move this one too later in the process.
                     // structure is still developing on the go and
                     // as far as I explore designPatterns :)
 
-        bb.btnList.forEach(Button -> {
-            btnBox.getChildren().add(Button);
-        });
+            bb.btnList.forEach(Button -> {
+                btnBox.getChildren().add(Button);
+            });
 
-        btnBox.setSpacing(20);btnBox.setPadding(new Insets(20));
-        mainContainer.getChildren().addAll(imageView,btnBox);
+            btnBox.setSpacing(20);btnBox.setPadding(new Insets(20));
+            mainContainer.getChildren().addAll(imageView,btnBox);
 
-        root.getChildren().add(mainContainer);
+            root.getChildren().add(mainContainer);
 
-        root.setAlignment(Pos.TOP_CENTER);
-        Scene currentScene = new Scene(root,1024,1024);
+            root.setAlignment(Pos.TOP_CENTER);
+            Scene currentScene = new Scene(root,1024,954);
 
-                // Stage-stuff
-        stage.setTitle("Dungeon_Adventure_V0.1.1");
-        stage.setScene(currentScene);
-        stage.show();
+                //NOTE Stage-stuff
+
+            stage.setTitle("Dungeon_Adventure_V0.1.1");
+            stage.setScene(currentScene);
+            stage.show();
+
+
+        } catch(Exception e){
+                    // Exception not thrown for now
+            System.out.println(e);
+        }
+
 
     }
 
