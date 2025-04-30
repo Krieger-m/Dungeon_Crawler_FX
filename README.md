@@ -3,7 +3,7 @@ Advanture game made with JavaFX
 work in progress!  
   
 ### Preview
-<img src="images/preview.png" alt="Preview-picture of the main-window" width="400px" height="auto">
+<img src="images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">
 
   
 ## upload_06  
