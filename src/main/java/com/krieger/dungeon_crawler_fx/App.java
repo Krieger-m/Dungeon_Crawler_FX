@@ -2,14 +2,14 @@ package com.krieger.dungeon_crawler_fx;
 
 import com.krieger.dungeon_crawler_fx.factories.ButtonBuilder;
 import com.krieger.dungeon_crawler_fx.factories.ImageBuilder;
-import com.krieger.dungeon_crawler_fx.factories.PaneBuilder;
+import com.krieger.dungeon_crawler_fx.factories.PaneFactory;
 import javafx.application.Application;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
@@ -33,85 +33,58 @@ public class App extends Application {
 
         try{
 
+                    //NOTE Elements
+            ImageBuilder imageBuilder = new ImageBuilder("file:./images/start_scene.jpg");
+            PaneFactory paneFactory = new PaneFactory();
 
-
-                //NOTE Elements
-            StackPane root = new StackPane();
-            VBox mainContainer = new VBox();
-
-                //NOTE Background Color
-            root.setBackground(new Background(new BackgroundFill(colorCode.get(3),null,null)));
-
-                //NOTE ImageBuilder-test
-                    // will move it to the SceneFactory or SceneHandler or
-                    // whatever I will call it later
-            ImageBuilder ib = new ImageBuilder("file:./images/start_scene.jpg");
-
-
-
-
-
-                //NOTE ButtonBuilder-test
-                    // same as the other 2 tests
-            ButtonBuilder bb = new ButtonBuilder();
-
-                //NOTE Button-names stored in a String array for better access at the moment
+                    //CHECK Buttons need to be improved later
+                        //Fix name storage
+            ButtonBuilder buttonBuilder = new ButtonBuilder();
+                        // Button-names stored in a String array for better access at the moment
             String[] btnNameArr= {"Search", "Action", "Inventory"};
 
+            StackPane root = new StackPane();
 
-            bb.addBtnsToList(btnNameArr);
+                    //NOTE Background Color
+            root.setBackground(new Background(new BackgroundFill(colorCode.get(3),null,null)));
 
-                //CHECK PaneBuilder-TestArea
-                    //NOTE for testing purposes,
-                    //TODO will restructure that later!
+                    //NOTE Assembling-zone here....
+                        // Methods from Builders and Factories get called
+            ImageView iv = imageBuilder.imageViewBuilder("imageView");
+            buttonBuilder.createNewButtons(btnNameArr);
+            paneFactory.btnBoxAssembler(buttonBuilder.btnList);
 
-            PaneBuilder pb = new PaneBuilder();
-            pb.addToList(pb.btnBoxBuilder());
-            pb.addToList(mainContainer);
-
-            pb.btnBoxAssembler(bb.btnList);
-
-                //NOTE Scene-assembly or SceneAssembly-test
-
-                    // will move this one too later in the process.
-                    // structure is still developing on the go and
-                    // as far as I explore designPatterns :)
-
-            /*      //CHECK currently out of service :)
-            bb.btnList.forEach(Button -> {
-                btnBox.getChildren().add(Button);
-            });
-            */
+            paneFactory.btnBoxBuilder("btnBox");
+            paneFactory.mainContainerBuilder("mainContainer");
 
 
-                                //TODO under construction, replace with other
-                                // builder or assembler method later
-                                // in the process
-            mainContainer.getChildren().addAll(ib.imageViewBuilder(),pb.getButtonBox());
+            paneFactory.addEvery(iv);
+            paneFactory.addEvery(paneFactory.getButtonBox());
 
-            root.getChildren().add(mainContainer);
 
+            //paneFactory.mainContainerAssembler(iv);
+            root.getChildren().add(paneFactory.getMainContainer());
             root.setAlignment(Pos.TOP_CENTER);
-            Scene currentScene = new Scene(root,ib.imageViewBuilder().getFitWidth(),954);
+
+                    //CHECK will need to move the root and scene relate code in a later update to separate classes
+
+            Scene currentScene = new Scene(root,imageBuilder.getImageView().getFitWidth(),954);
 
                 //NOTE Stage-stuff
-
                         //Set-Sizes //NOTE thanks Ulrich ;*
-            stage.setMinHeight((ib.img.getHeight()+pb.getButtonBox().getHeight()));
+            stage.setMinHeight((imageBuilder.img.getHeight()+paneFactory.getButtonBox().getHeight()));
             stage.setMinWidth(800);//ib.img.getWidth());
-            stage.setMaxHeight((ib.img.getHeight()+pb.getButtonBox().getHeight()));
+            stage.setMaxHeight((imageBuilder.img.getHeight()+paneFactory.getButtonBox().getHeight()));
             stage.setMaxWidth(800);//ib.img.getWidth());
 
             stage.setTitle("Dungeon_Adventure_V0.1.1");
             stage.setScene(currentScene);
             stage.show();
 
-
         } catch(Exception e){
                     // Exception not thrown for now
             System.out.println(e);
         }
-
 
     }
 

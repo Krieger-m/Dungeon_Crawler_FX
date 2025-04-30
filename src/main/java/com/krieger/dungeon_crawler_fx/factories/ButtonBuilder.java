@@ -3,7 +3,6 @@ package com.krieger.dungeon_crawler_fx.factories;
 import com.krieger.dungeon_crawler_fx.App;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Color;
 import javafx.scene.text.Font;
 
 import java.util.ArrayList;
@@ -29,10 +28,9 @@ public class ButtonBuilder extends App {
                 // returns a new button and sets String type to "actionBtn" for example
     public Button returnNewBtn(String text){
         setBtnText(text);
-        this.type=text.toLowerCase()+"Btn";
         Button newBtn = new Button(getBtnText());
+        newBtn.setId(text.toLowerCase()+"Btn");
         newBtn.setFont(Font.font(16));
-        //newBtn.setPrefSize(80,40);
         colorSettingsDark(newBtn);
         newBtn.setOnMouseEntered(mouseEvent ->{
             colorSettingsLight(newBtn);
@@ -45,7 +43,7 @@ public class ButtonBuilder extends App {
     }
 
                 // adding buttons to the btnList
-    public void addBtnsToList(String[] arr){
+    public void createNewButtons(String[] arr){
         for (String s : arr) {
             this.btnList.add(returnNewBtn(s));
         }
@@ -87,9 +85,6 @@ public class ButtonBuilder extends App {
         btn.setTextFill(colorCode.get(3));
 
     }
-
-
-
 
         //NOTE Getters/Setters
                 // - btnText - but I guess they just sit here in their corner unused for now ...

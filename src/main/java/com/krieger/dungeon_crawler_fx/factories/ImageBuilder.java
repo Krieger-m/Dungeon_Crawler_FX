@@ -1,20 +1,19 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
+import com.krieger.dungeon_crawler_fx.App;
 import javafx.scene.Node;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-public class ImageBuilder extends Node {
+public class ImageBuilder extends App {
 
                 //NOTE Variables
     private String imgPath = " ";
     public Image img;
-    public ImageView imgView;
+    public static ImageView imageView;
 
                 // TODO ImageList will be added here
     //
-
-
 
                 //NOTE Constructors
                     // ImageView Constructor, returns ImageView type for further
@@ -25,12 +24,16 @@ public class ImageBuilder extends Node {
     }
 
                 //NOTE Methods for returning elements
-    public ImageView imageViewBuilder() {
+    public ImageView imageViewBuilder(String title) {
         this.img = new Image(this.imgPath);
-        this.imgView = new ImageView(img);
-        this.imgView.setFitWidth(800);
-        this.imgView.setPreserveRatio(true);
-        return imgView;
+        this.imageView = new ImageView(img);
+        this.imageView.setId(title);
+        this.imageView.setFitWidth(800);
+        this.imageView.setPreserveRatio(true);
+        return imageView;
+    }
+    public ImageView getImageView(){
+        return this.imageView;
     }
 
                 //NOTE getter/setter
@@ -42,8 +45,4 @@ public class ImageBuilder extends Node {
         this.imgPath = imgPath;
     }
 
-    @Override
-    public Node getStyleableNode() {
-        return super.getStyleableNode();
-    }
 }
