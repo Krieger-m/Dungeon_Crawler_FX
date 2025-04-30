@@ -3,7 +3,7 @@ Advanture game made with JavaFX
 work in progress!  
   
 ### Preview
-<picture src=https://github.com/Krieger-m/Dungeon_Crawler_FX/blob/main/images/preview.png>
+<picture src="https://github.com/Krieger-m/Dungeon_Crawler_FX/blob/main/images/preview.png">
   
 ## upload_06  
 major changes... still struggling with the scene progression.  
@@ -22,3 +22,4 @@ according to the implemented changes
 button gui-dynamics implemented   
 further progress  
     
+
