@@ -4,14 +4,16 @@ import com.krieger.dungeon_crawler_fx.factories.ButtonBuilder;
 import com.krieger.dungeon_crawler_fx.factories.ImageBuilder;
 import com.krieger.dungeon_crawler_fx.factories.PaneBuilder;
 import javafx.application.Application;
-import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
-import javafx.scene.image.ImageView;
-import javafx.scene.layout.*;
+import javafx.scene.layout.Background;
+import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
 import javafx.stage.Stage;
+
 import java.util.Map;
 
 public class App extends Application {
@@ -45,7 +47,7 @@ public class App extends Application {
                     // whatever I will call it later
             ImageBuilder ib = new ImageBuilder("file:./images/start_scene.jpg");
 
-            ImageView imageView = ib.imageViewBuilder();
+
 
 
 
@@ -60,8 +62,8 @@ public class App extends Application {
             bb.addBtnsToList(btnNameArr);
 
                 //CHECK PaneBuilder-TestArea
-                //NOTE for testing purposes,
-                //TODO will restructure that later!
+                    //NOTE for testing purposes,
+                    //TODO will restructure that later!
 
             PaneBuilder pb = new PaneBuilder();
             pb.addToList(pb.btnBoxBuilder());
@@ -85,14 +87,20 @@ public class App extends Application {
                                 //TODO under construction, replace with other
                                 // builder or assembler method later
                                 // in the process
-            mainContainer.getChildren().addAll(imageView,pb.getButtonBox());
+            mainContainer.getChildren().addAll(ib.imageViewBuilder(),pb.getButtonBox());
 
             root.getChildren().add(mainContainer);
 
             root.setAlignment(Pos.TOP_CENTER);
-            Scene currentScene = new Scene(root,imageView.getFitWidth(),954);
+            Scene currentScene = new Scene(root,ib.imageViewBuilder().getFitWidth(),954);
 
                 //NOTE Stage-stuff
+
+                        //Set-Sizes //NOTE thanks Ulrich ;*
+            stage.setMinHeight((ib.img.getHeight()+pb.getButtonBox().getHeight()));
+            stage.setMinWidth(800);//ib.img.getWidth());
+            stage.setMaxHeight((ib.img.getHeight()+pb.getButtonBox().getHeight()));
+            stage.setMaxWidth(800);//ib.img.getWidth());
 
             stage.setTitle("Dungeon_Adventure_V0.1.1");
             stage.setScene(currentScene);

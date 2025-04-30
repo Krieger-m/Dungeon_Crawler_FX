@@ -8,6 +8,8 @@ public class ImageBuilder extends Node {
 
                 //NOTE Variables
     private String imgPath = " ";
+    public Image img;
+    public ImageView imgView;
 
                 // TODO ImageList will be added here
     //
@@ -24,10 +26,10 @@ public class ImageBuilder extends Node {
 
                 //NOTE Methods for returning elements
     public ImageView imageViewBuilder() {
-        Image img = new Image(this.imgPath);
-        ImageView imgView = new ImageView(img);
-        imgView.setFitWidth(800);
-        imgView.setPreserveRatio(true);
+        this.img = new Image(this.imgPath);
+        this.imgView = new ImageView(img);
+        this.imgView.setFitWidth(800);
+        this.imgView.setPreserveRatio(true);
         return imgView;
     }
 
