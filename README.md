@@ -2,6 +2,9 @@
 Advanture game made with JavaFX  
 work in progress!  
   
+### Preview
+/images/preview.png
+  
 ## upload_06  
 major changes... still struggling with the scene progression.  
 will try a new concept and implement design patterns, next steps:  
