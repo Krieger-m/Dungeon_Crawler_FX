@@ -2,6 +2,7 @@ package com.krieger.dungeon_crawler_fx;
 
 import com.krieger.dungeon_crawler_fx.factories.ButtonBuilder;
 import com.krieger.dungeon_crawler_fx.factories.ImageBuilder;
+import com.krieger.dungeon_crawler_fx.factories.PaneBuilder;
 import javafx.application.Application;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
@@ -32,12 +33,9 @@ public class App extends Application {
 
 
 
-
-
                 //NOTE Elements
             StackPane root = new StackPane();
             VBox mainContainer = new VBox();
-            HBox btnBox = new HBox();
 
                 //NOTE Background Color
             root.setBackground(new Background(new BackgroundFill(colorCode.get(3),null,null)));
@@ -47,7 +45,7 @@ public class App extends Application {
                     // whatever I will call it later
             ImageBuilder ib = new ImageBuilder("file:./images/start_scene.jpg");
 
-            ImageView imageView = ib.ImageViewBuilder();
+            ImageView imageView = ib.imageViewBuilder();
 
 
 
@@ -55,11 +53,21 @@ public class App extends Application {
                     // same as the other 2 tests
             ButtonBuilder bb = new ButtonBuilder();
 
-                //NOTE Button-names stored in a String array
+                //NOTE Button-names stored in a String array for better access at the moment
             String[] btnNameArr= {"Search", "Action", "Inventory"};
 
 
             bb.addBtnsToList(btnNameArr);
+
+                //CHECK PaneBuilder-TestArea
+                //NOTE for testing purposes,
+                //TODO will restructure that later!
+
+            PaneBuilder pb = new PaneBuilder();
+            pb.addToList(pb.btnBoxBuilder());
+            pb.addToList(mainContainer);
+
+            pb.btnBoxAssembler(bb.btnList);
 
                 //NOTE Scene-assembly or SceneAssembly-test
 
@@ -67,17 +75,22 @@ public class App extends Application {
                     // structure is still developing on the go and
                     // as far as I explore designPatterns :)
 
+            /*      //CHECK currently out of service :)
             bb.btnList.forEach(Button -> {
                 btnBox.getChildren().add(Button);
             });
+            */
 
-            btnBox.setSpacing(20);btnBox.setPadding(new Insets(20));
-            mainContainer.getChildren().addAll(imageView,btnBox);
+
+                                //TODO under construction, replace with other
+                                // builder or assembler method later
+                                // in the process
+            mainContainer.getChildren().addAll(imageView,pb.getButtonBox());
 
             root.getChildren().add(mainContainer);
 
             root.setAlignment(Pos.TOP_CENTER);
-            Scene currentScene = new Scene(root,800,954);
+            Scene currentScene = new Scene(root,imageView.getFitWidth(),954);
 
                 //NOTE Stage-stuff
 

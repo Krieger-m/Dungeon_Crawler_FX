@@ -26,6 +26,24 @@ public class ButtonBuilder extends App {
 
             //NOTE Methods
 
+                // returns a new button and sets String type to "actionBtn" for example
+    public Button returnNewBtn(String text){
+        setBtnText(text);
+        this.type=text.toLowerCase()+"Btn";
+        Button newBtn = new Button(getBtnText());
+        newBtn.setFont(Font.font(16));
+        //newBtn.setPrefSize(80,40);
+        colorSettingsDark(newBtn);
+        newBtn.setOnMouseEntered(mouseEvent ->{
+            colorSettingsLight(newBtn);
+        });
+        newBtn.setOnMouseExited(mouseEvent -> {
+            colorSettingsDark(newBtn);
+        });
+
+        return newBtn;
+    }
+
                 // adding buttons to the btnList
     public void addBtnsToList(String[] arr){
         for (String s : arr) {
@@ -33,14 +51,14 @@ public class ButtonBuilder extends App {
         }
     }
 
-                // Button color: Standard dark-settings
+                // Button color: Standard dark-settings (normal mode)
     public void colorSettingsDark(Button btn){
         btn.setBorder(new Border(
                 new BorderStroke(
                         colorCode.get(4),
                         BorderStrokeStyle.SOLID,
                         new CornerRadii(3),
-                        new BorderWidths(1),null)
+                        new BorderWidths(2),null)
         ));
         btn.setBackground(new Background(
                 new BackgroundFill(
@@ -51,14 +69,14 @@ public class ButtonBuilder extends App {
 
     }
 
-                // Button color: Standard hover-light-settings
+                // Button color: Standard hover-light-settings (hover mode)
     public void colorSettingsLight(Button btn){
         btn.setBorder(new Border(
                 new BorderStroke(
                         colorCode.get(1),
                         BorderStrokeStyle.SOLID,
                         new CornerRadii(3),
-                        new BorderWidths(1),null)
+                        new BorderWidths(2),null)
         ));
         btn.setBackground(new Background(
                 new BackgroundFill(
@@ -70,23 +88,7 @@ public class ButtonBuilder extends App {
 
     }
 
-                // returns a new button and sets String type to "actionBtn" for example
-    public Button returnNewBtn(String text){
-        setBtnText(text);
-        this.type=text.toLowerCase()+"Btn";
-        Button newBtn = new Button(getBtnText());
-        newBtn.setFont(Font.font(16));
-            //newBtn.setPrefSize(80,40);
-        colorSettingsDark(newBtn);
-        newBtn.setOnMouseEntered(mouseEvent ->{
-            colorSettingsLight(newBtn);
-        });
-        newBtn.setOnMouseExited(mouseEvent -> {
-            colorSettingsDark(newBtn);
-        });
 
-        return newBtn;
-    }
 
 
         //NOTE Getters/Setters

@@ -1,12 +1,23 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
 import com.krieger.dungeon_crawler_fx.App;
+import com.krieger.dungeon_crawler_fx.factories.ButtonBuilder;
+import javafx.geometry.Insets;
+import javafx.scene.control.Button;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.Pane;
+import javafx.scene.layout.StackPane;
+import javafx.scene.layout.VBox;
+
+import java.util.ArrayList;
 
 public class RootFactory extends App {
             //
-        // TODO take a look into topic !!!! //
-        // NOTE DONE //
-            //
+        //NOTE Variables
+
+
+
+
 
         //NOTE Constructors
     public RootFactory() {
@@ -14,7 +25,16 @@ public class RootFactory extends App {
     }
 
         //NOTE Methods
-    public void makeStandardRoot(){
+
+
+
+
+    public void createStandardRoot(){
+
+                //NOTE Elements
+        StackPane root = new StackPane();
+        VBox mainContainer = new VBox();
+
 
     }
 }
