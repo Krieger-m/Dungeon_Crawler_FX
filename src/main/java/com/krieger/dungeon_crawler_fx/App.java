@@ -5,10 +5,13 @@ import com.krieger.dungeon_crawler_fx.factories.ImageBuilder;
 import com.krieger.dungeon_crawler_fx.factories.PaneFactory;
 import javafx.application.Application;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.Background;
 import javafx.scene.layout.BackgroundFill;
+import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -52,19 +55,23 @@ public class App extends Application {
                         // Methods from Builders and Factories get called
             ImageView iv = imageBuilder.imageViewBuilder("imageView");
             buttonBuilder.createNewButtons(btnNameArr);
-            paneFactory.btnBoxAssembler(buttonBuilder.btnList);
 
-            paneFactory.btnBoxBuilder("btnBox");
-            paneFactory.mainContainerBuilder("mainContainer");
+            paneFactory.newPane("btnBox","btnBox");
+
+            paneFactory.newPane("mainContainer","mainContainer");
+
+                    //generalAssembler-test!
+            for (Button btn: buttonBuilder.btnList) {
+                paneFactory.generalAssembler(paneFactory.getPaneById("btnBox"),btn);
+            };
 
 
-            paneFactory.addEvery(iv);
-            paneFactory.addEvery(paneFactory.getButtonBox());
+            paneFactory.generalAssembler(paneFactory.getPaneById("mainContainer"),iv);
+            paneFactory.generalAssembler(paneFactory.getPaneById("mainContainer"), paneFactory.getPaneById("btnBox"));
 
-
-            //paneFactory.mainContainerAssembler(iv);
-            root.getChildren().add(paneFactory.getMainContainer());
+            paneFactory.generalAssembler(root, paneFactory.getPaneById("mainContainer"));
             root.setAlignment(Pos.TOP_CENTER);
+
 
                     //CHECK will need to move the root and scene relate code in a later update to separate classes
 
@@ -72,9 +79,9 @@ public class App extends Application {
 
                 //NOTE Stage-stuff
                         //Set-Sizes //NOTE thanks Ulrich ;*
-            stage.setMinHeight((imageBuilder.img.getHeight()+paneFactory.getButtonBox().getHeight()));
+            stage.setMinHeight((imageBuilder.img.getHeight()+paneFactory.getPaneById("btnBox").getHeight()));
             stage.setMinWidth(800);//ib.img.getWidth());
-            stage.setMaxHeight((imageBuilder.img.getHeight()+paneFactory.getButtonBox().getHeight()));
+            stage.setMaxHeight((imageBuilder.img.getHeight()+paneFactory.getPaneById("btnBox").getHeight()));
             stage.setMaxWidth(800);//ib.img.getWidth());
 
             stage.setTitle("Dungeon_Adventure_V0.1.1");

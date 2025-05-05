@@ -1,67 +1,65 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
 import javafx.geometry.Insets;
+import javafx.scene.Node;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.layout.Pane;
 
+import java.lang.invoke.TypeDescriptor;
 import java.util.ArrayList;
 
 public class PaneBuilder {
 
-        //NOTE Variables
+    public ArrayList<Pane> panes = new ArrayList<>();
 
-    ArrayList<Pane> paneList = new ArrayList<>();
-    String name;
-    String type;
-
-
-        //NOTE Contructor
-
-    public PaneBuilder() {
-    }
-
-
-        //NOTE Methods
-            // adds element to list
-    public void addToList(Pane p){
-        this.paneList.add(p);
-    }
-
-            // Main Container
-    public VBox mainContainerBuilder(){
-        this.name="mainContainer";
-        this.type="vBox";
-        VBox vBox = new VBox();
-        return vBox;
-    }
-    public void vBoxAssembler(){
-
-    }
-            // Button Box
-    public HBox btnBoxBuilder(){
-        this.name="btnBox";
-        this.type="hBox";
-        HBox hBox = new HBox();
-        hBox.setSpacing(20);
-        hBox.setPadding(new Insets(20));
-        return hBox;
-    }
-    public void btnBoxAssembler(ArrayList<Button> btnList){
-        btnList.forEach(Button -> {
-            for (Pane p : this.paneList) {
-                if (p.getClass().equals(HBox.class)) {
-                    p.getChildren().add(Button);
-                }
+    public void newPane(String type, String id){
+        switch (type){
+            case "HBox","buttonBox","btnBox":{
+                HBox hBox = new HBox();
+                hBox.setId(id);
+                hBox.setSpacing(20);
+                hBox.setPadding(new Insets(40,40,40,40));
+                this.panes.add(hBox);
+            }break;
+            case "VBox","mainContainer","mainBox": {
+                VBox vBox = new VBox();
+                vBox.setId(id);
+                this.panes.add(vBox);
+            }break;
+            default: {
+                System.out.println("Compatible types: \"VBox\" \"HBox\" ");
             }
-        });
+        }
     }
-    public Pane getButtonBox(){
-        for (Pane p : this.paneList) {
-            if (p.getClass().isInstance(HBox.class)) {
+
+    public Pane getPaneById(String id){
+        boolean check = false;
+        for (Pane p : this.panes) {
+            if (p.getId().equals(id)) {
+                System.out.println("getElementByID: "+id);
+                check = true;
                 return p;
             }
-            return p;
+        }
+        if(!check) {
+            System.out.println("ERROR: ID - "+id+" not found!");
+        }
+        return null;
+    }
+
+    public Pane getPaneByClass(String cls){
+        boolean check = false;
+        for (Pane p : this.panes) {
+            if (p.getClass().toString().equals(cls)) {
+                System.out.println("getElementByClass: "+cls);
+                check = true;
+                return p;
+            }
+        }
+        if(!check) {
+            System.out.println("ERROR: ID - "+cls+" not found!");
         }
         return null;
     }

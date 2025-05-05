@@ -10,7 +10,7 @@ public class ImageBuilder extends App {
                 //NOTE Variables
     private String imgPath = " ";
     public Image img;
-    public static ImageView imageView;
+    public ImageView imageView;
 
                 // TODO ImageList will be added here
     //
