@@ -6,20 +6,27 @@ work in progress!
 <img src="images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">
 
   
-## upload_06  
+## v_06  
 major changes... still struggling with the scene progression.  
 will try a new concept and implement design patterns, next steps:  
 - factory concept explore and implement  
   
-## upload_07  
+## v_07  
 implemented a new structure and try to follow creational design patterns along the process.   
 lots of work still to do :)  
   
-## upload_08  
+## v_08  
 major color update and further structural developments  
 according to the implemented changes  
    
-## upload_09 & upload_10  (current)
+## v_09 & v_010
 button gui-dynamics implemented   
 further progress  
     
+## v_011 & v_012  (current)
+broke the project and fixed it... a day of work gone but   
+I took the chance and implemented further structural improvements   
+  
+v_012 more changes and progress  
+    
+
