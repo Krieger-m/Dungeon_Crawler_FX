@@ -1,5 +1,6 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
+import com.krieger.dungeon_crawler_fx.controllers.MainController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
@@ -24,9 +25,11 @@ public class PaneFactory {
 
 
             //NOTE Variables
+    //
+    // MainController mc = new MainController();
 
-    public ButtonBuilder bb = new ButtonBuilder();
-    public static ArrayList<Button> btnList = new ArrayList<>();
+
+
 
     String[] paneNames = {"root","btnBox","mainContainer"};
 
@@ -41,8 +44,13 @@ public class PaneFactory {
 
     }
 
+    public PaneFactory(HBox hBox, VBox vBox, StackPane root) {
+        this.hBox = hBox;
+        this.vBox = vBox;
+        this.root = root;
+    }
 
-            //NOTE Methods
+    //NOTE Methods
 
                 // creates and returns a new Pane depending on the input parameters
     public Pane newPane(String id){
@@ -51,7 +59,7 @@ public class PaneFactory {
                 this.hBox = new HBox();
                 this.hBox.setId(id);
                 this.hBox.setSpacing(20);
-                bb.createNewButtons();
+                ButtonFactory.createNewButtons(MainController.mainSceneButtons);
                 this.hBox.setPadding(new Insets(40,40,40,40));
                 System.out.println("btnBox added");
                 return hBox;

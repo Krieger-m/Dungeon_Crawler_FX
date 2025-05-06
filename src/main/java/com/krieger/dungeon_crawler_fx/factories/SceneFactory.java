@@ -4,7 +4,7 @@ import com.krieger.dungeon_crawler_fx.App;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
-public class SceneFactory extends App{
+public class SceneFactory {
         //NOTE implement later since it will be the last assembly-step
 
 
