@@ -23,10 +23,13 @@ according to the implemented changes
 button gui-dynamics implemented   
 further progress  
     
-## v_011 & v_012  (current)
+## v_011 & v_012   
 broke the project and fixed it... a day of work gone but   
 I took the chance and implemented further structural improvements   
   
 v_012 more changes and progress  
+    
+## v_013 (current)
+button logic added and some more clean-up    
     
 
