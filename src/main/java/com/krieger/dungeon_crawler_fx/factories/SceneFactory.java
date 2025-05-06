@@ -1,0 +1,47 @@
+package com.krieger.dungeon_crawler_fx.factories;
+
+import com.krieger.dungeon_crawler_fx.App;
+import javafx.scene.Scene;
+import javafx.stage.Stage;
+
+public class SceneFactory extends App{
+        //NOTE implement later since it will be the last assembly-step
+
+
+        //NOTE Variables
+
+
+    PaneFactory pf = new PaneFactory();
+
+
+            //sizes     Height / Width
+    double[] sizes ={
+            1080,
+            800
+
+    };
+
+
+    //Scene currentScene = new Scene(pf.root,PaneFactory.colorCode.get(3));
+
+
+        //NOTE Constructors
+            //
+
+        //NOTE Methods
+
+    public void setStageStuff(Stage stage){
+
+
+        stage.setMinHeight(sizes[0]);
+        stage.setMinWidth(sizes[1]);//ib.img.getWidth());
+        stage.setMaxHeight(stage.getMinHeight());
+        stage.setMaxWidth(stage.getMinWidth());
+
+        stage.setTitle("Dungeon_Adventure_V0.1.3");
+
+
+    };
+
+
+}
