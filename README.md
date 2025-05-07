@@ -3,8 +3,9 @@ Adventure game made with JavaFX
 work in progress!  
   
 ### Preview
-<img src="images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">  
-preview of the inventor-screen will follow
+<img src="images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">    
+   
+preview of the inventory-screen will follow
   
 ## v_06  
 major changes... still struggling with the scene progression.  
