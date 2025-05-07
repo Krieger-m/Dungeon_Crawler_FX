@@ -53,30 +53,43 @@ public class PaneFactory {
     //NOTE Methods
 
                 // creates and returns a new Pane depending on the input parameters
+
+    public HBox createHBox(String id) {
+        HBox hBox = new HBox();
+        hBox.setId(id);
+        hBox.setSpacing(20);
+        ButtonFactory.createNewButtons(MainController.mainSceneButtons);
+        hBox.setPadding(new Insets(40, 40, 40, 40));
+        System.out.println(id+" added");
+        return hBox;
+    }
+
+    public VBox createVBox(String id) {
+        VBox vBox = new VBox();
+        vBox.setId(id);
+        vBox.setMaxHeight(980);
+        vBox.setMinHeight(980);
+        System.out.println(id+" added");
+        return vBox;
+    }
+
+    public StackPane createStackPane(String id) {
+        StackPane root = new StackPane();
+        root.setAlignment(Pos.TOP_CENTER);
+        root.setBackground(new Background(new BackgroundFill(colorCode.get(3), null, null)));
+        System.out.println(id+" added");
+        return root;
+    }
     public Pane newPane(String id){
         switch (id){
             case "HBox","buttonBox","btnBox":{
-                this.hBox = new HBox();
-                this.hBox.setId(id);
-                this.hBox.setSpacing(20);
-                ButtonFactory.createNewButtons(MainController.mainSceneButtons);
-                this.hBox.setPadding(new Insets(40,40,40,40));
-                System.out.println("btnBox added");
-                return hBox;
+                this.hBox = createHBox(id);
             }
             case "VBox","mainContainer","mainBox": {
-                this.vBox= new VBox();
-                this.vBox.setId(id);
-                this.vBox.setMaxHeight(980);this.vBox.setMinHeight(980);
-                System.out.println("mainContainer added");
-                return vBox;
+                this.vBox= createVBox(id);
             }
             case "root","StackPane":{
-                this.root =new StackPane();
-                root.setAlignment(Pos.TOP_CENTER);
-                root.setBackground(new Background(new BackgroundFill(colorCode.get(3),null,null)));
-                System.out.println("StackPane added");
-                return root;
+                this.root = createStackPane(id);
             }
             default: {
                 System.out.println("ERROR: Compatible types are: \"VBox, btnBox\", \"HBox, mainContainer\", \"root, StackPane\" ");

@@ -7,7 +7,8 @@ import javafx.scene.image.ImageView;
 public class ImageFactory  {
 
                 //NOTE Variables
-    private String imgPath = " ";
+    public String mainImgPath = "file:./images/start_scene.jpg";
+    public String inventoryImgPath = "file:./images/inventory_bg.jpg";
     public Image img;
     public ImageView imageView;
 
@@ -22,7 +23,7 @@ public class ImageFactory  {
 
                 //NOTE Methods for returning elements
     public ImageView imageViewBuilder(String title) {
-        this.img = new Image(this.imgPath);
+        this.img = new Image(this.mainImgPath);
         this.imageView = new ImageView(img);
         this.imageView.setId(title);
         this.imageView.setFitWidth(800);
@@ -31,8 +32,8 @@ public class ImageFactory  {
     }
 
     public void updateImage(String path){
-        this.imgPath= path;
-        this.img = new Image(this.imgPath);
+        this.mainImgPath= path;
+        this.img = new Image(this.mainImgPath);
         this.imageView.setImage(this.img);
     }
 
@@ -44,10 +45,10 @@ public class ImageFactory  {
                 //NOTE getter/setter
                     // imgPath
     public String getImgPath() {
-        return imgPath;
+        return mainImgPath;
     }
     public void setImgPath(String imgPath) {
-        this.imgPath = imgPath;
+        this.mainImgPath = imgPath;
     }
 
 }

@@ -2,10 +2,12 @@ package com.krieger.dungeon_crawler_fx.factories;
 
 import javafx.scene.control.Button;
 import javafx.scene.layout.*;
+import javafx.scene.paint.Paint;
 import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 
 import static com.krieger.dungeon_crawler_fx.factories.PaneFactory.colorCode;
 
@@ -34,25 +36,27 @@ public class ButtonFactory  {
             //NOTE Methods
 
                 // returns a new button and sets String type to "actionBtn" for example
-    public static Button newButton(String text){
-        setBtnText(text);
-        Button newBtn = new Button(getBtnText());
-        newBtn.setId(text.toLowerCase()+"Btn");
+    public static Button newButton(String text) {
+        Button newBtn = new Button(text);
+        newBtn.setId(text.toLowerCase() + "Btn");
         newBtn.setFont(Font.font(16));
         colorSettingsDark(newBtn);
         newBtn.setOnMouseEntered(mouseEvent -> colorSettingsLight(newBtn));
         newBtn.setOnMouseExited(mouseEvent -> colorSettingsDark(newBtn));
-
         return newBtn;
     }
 
                 // adding buttons to the btnList
-    public static void createNewButtons(String[] arr){
-        updateButtonNames(arr);
+    public static List<Button> createNewButtons(String[] arr){
+        List<Button> btnList = new ArrayList<>();
+        //updateButtonNames(arr);
+        System.out.println("___________\n");
         for (String s : arr) {
             System.out.println(s.toLowerCase()+"Btn  - added");
             btnList.add(newButton(s));
         }
+        System.out.println("___________\n");
+        return btnList;
     }
 
 
