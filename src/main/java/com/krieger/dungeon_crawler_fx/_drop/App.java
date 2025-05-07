@@ -1,4 +1,4 @@
-package com.krieger.dungeon_crawler_fx;
+package com.krieger.dungeon_crawler_fx._drop;
 
 import com.krieger.dungeon_crawler_fx.controllers.MainController;
 import com.krieger.dungeon_crawler_fx.factories.ButtonFactory;
@@ -13,6 +13,7 @@ import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Font;
 import javafx.stage.Stage;
+
 import java.util.List;
 
 public class App extends Application {
@@ -79,21 +80,21 @@ public class App extends Application {
             switch (btn.getId()){
                 case "inventoryBtn": {
                     btn.setOnAction(a->{
-                        System.out.println("\t - inventory-button check!");
+                        System.out.println("\t - inventory-button works!");
 
                         handleInventoryButton(ib,pf,iv,mainButtons,inventoryButtons);
                     });
                 }break;
                 case "actionBtn": {
                     btn.setOnAction(a->{
-                        System.out.println("\t - action-button check!");
+                        System.out.println("\t - action-button works!");
 
                         handleSearchButton(pf,btn.getId());
                     });
                 }break;
                 case "searchBtn": {
                     btn.setOnAction(a->{
-                        System.out.println("\t - search-button check!");
+                        System.out.println("\t - search-button works!");
 
                             // just for testing, will get an own method soon :
                         handleSearchButton(pf,btn.getId());
@@ -102,27 +103,27 @@ public class App extends Application {
                 }break;
                 case "backBtn": {
                     btn.setOnAction(a->{
-                        System.out.println("\t - back-button check!");
+                        System.out.println("\t - back-button works!");
 
                         handleBackButton(ib, pf, iv, mainButtons, inventoryButtons);
                     });
                 }break;
                 case "useBtn": {
                     btn.setOnAction(a->{
-                        System.out.println("\t - use-button check!");
+                        System.out.println("\t - use-button works!");
 
                         handleSearchButton(pf,btn.getId());
                     });
                 }break;
                 case "equipBtn": {
                     btn.setOnAction(a->{
-                        System.out.println("\t - equip-button check!");
+                        System.out.println("\t - equip-button works!");
 
                     });
                 }break;
                 case "combineBtn": {
                     btn.setOnAction(a->{
-                        System.out.println("\t - combine-button check!");
+                        System.out.println("\t - combine-button works!");
 
                     });
                 }break;

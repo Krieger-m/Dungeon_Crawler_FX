@@ -1,6 +1,5 @@
-package com.krieger.dungeon_crawler_fx.factories;
+package com.krieger.dungeon_crawler_fx._drop.factories;
 
-import com.krieger.dungeon_crawler_fx.App;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 

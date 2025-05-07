@@ -58,7 +58,7 @@
             <!-- Default configuration for running with: mvn clean javafx:run -->
             <id>default-cli</id>
             <configuration>
-              <mainClass>com.krieger.dungeon_crawler_fx/com.krieger.dungeon_crawler_fx.drop.App</mainClass>
+              <mainClass>com.krieger.dungeon_crawler_fx/com.krieger.dungeon_crawler_fx._drop.App</mainClass>
               <launcher>app</launcher>
               <jlinkZipName>app</jlinkZipName>
               <jlinkImageName>app</jlinkImageName>
