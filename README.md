@@ -4,7 +4,7 @@ work in progress!
   
 ### Preview
 <img src="images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">  
-preview of the inventory-screen will follow
+preview of the inventor-screen will follow
   
 ## v_06  
 major changes... still struggling with the scene progression.  
@@ -38,7 +38,7 @@ broke the project again and needed to clean up a lot
 also further structural changes   
 added a _drop folder to keep the old files for now 
     
-## v_013 (current)
+## v_016 (current)
 added a Sandbox to test some processes before   
 adding to the main-code to prevent further bloating  
 
