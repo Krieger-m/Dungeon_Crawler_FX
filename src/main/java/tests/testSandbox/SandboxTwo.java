@@ -1,32 +1,44 @@
 package tests.testSandbox;
 
-import javafx.geometry.Pos;
+import javafx.application.Application;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
-import javafx.scene.control.Label;
 import javafx.scene.layout.StackPane;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class SandboxTwo extends SandboxOne{
-    public void setSandboxTwo(Stage stage, Scene previousScene){
-    StackPane root = new StackPane();
-    VBox container = new VBox();
-    container.setAlignment(Pos.CENTER);
-    Button btn = new Button("Back!");
-    Label lbl = new Label("second-stage test");
+public class SandboxTwo extends Application {
+
+    public void start(Stage stage) {
+
+        NewBtn newBtn2 = new NewBtn("Action");
+
+
+
+        StackPane root = new StackPane();
+        Scene scene = new Scene(root,340,240);
+        root.getChildren().add(newBtn2.btn);
+        scene.setRoot(root);
 
 
 
 
-    container.getChildren().addAll(lbl,btn);
-    root.getChildren().add(container);
+        NewBtn newBtn = new NewBtn();
 
-    btnHandler(btn,stage,previousScene);
-    
-    Scene scene = new Scene(root,350,250);
-    stage.setTitle("SandboxWindow - SceneTwo");
-    stage.setScene(scene);
 
-}
+
+        System.out.println(newBtn);
+
+        System.out.println(newBtn2.btnText);
+        System.out.println(newBtn2.id);
+
+        newBtn2.setBtn();
+
+        stage.setScene(scene);
+        stage.show();
+
+
+
+
+
+    }
 }
