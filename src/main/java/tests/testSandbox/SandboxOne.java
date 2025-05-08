@@ -2,6 +2,7 @@ package tests.testSandbox;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
+import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -12,45 +13,86 @@ import javafx.stage.Stage;
 import java.util.ArrayList;
 
 public class SandboxOne extends Application {
+        //NOTE Variables
 
+    ArrayList<Scene> sceneList = new ArrayList<>();
 
+        //NOTE Constructors
+    //
 
-    public void btnHandler(Button btn, Stage stage, Scene scene){
+        //NOTE Methods
+    public void addSceneToList(Scene scene){
+        this.sceneList.add(scene);
+    }
+
+    public void setAndShowStage(Stage x, Scene y, String title){
+        x.setScene(y);
+        x.setTitle(title);
+        x.show();
+    }
+
+    public Scene prepareNewScene(){
+
+        System.out.println("prepareNewScene - check");
+
+        StackPane root = new StackPane();
+        VBox container = new VBox();
+        container.setAlignment(Pos.CENTER);
+        Button btn = new Button("PrepButton!");
+        Label lbl = new Label("prep-stage test check");
+        Scene preparedScene = new Scene(root,350,250);
+
+        container.getChildren().addAll(lbl,btn);
+        root.getChildren().add(container);
+
+        btn.setOnAction(actionEvent -> {
+            System.out.println("prepBtn-test check");
+
+        });
+        addSceneToList(preparedScene);
+
+        return preparedScene;
+    }
+
+    public void setNextScene(Stage stage, Scene previousScene){
+
+        System.out.println("setNewScene - check");
+
+        StackPane root = new StackPane();
+        VBox container = new VBox();
+        container.setAlignment(Pos.CENTER);
+        Button btn = new Button("Back!");
+        Label lbl = new Label("second-stage test");
+        Scene nextScene = new Scene(root,350,250);
+
+        container.getChildren().addAll(lbl,btn);
+        root.getChildren().add(container);
+
         btn.setOnAction(actionEvent -> {
             System.out.println("btn-test check");
 
-            SandboxTwo st = new SandboxTwo();
-            st.setSandboxTwo(stage, scene);
-
+            stage.setScene(previousScene);
         });
+        addSceneToList(nextScene);
+        setAndShowStage(stage, nextScene, "SandboxWindow - SceneTwo");
     }
 
     @Override
     public void start(Stage stage) throws Exception {
 
-        StackPane root = new StackPane();
-        VBox container = new VBox();
-        container.setAlignment(Pos.CENTER);
-        Button btn = new Button("Click!");
 
-        Label lbl = new Label("first-tage test");
+        Scene sceneOne  = prepareNewScene();
 
-        container.getChildren().addAll(lbl,btn);
-        root.getChildren().add(container);
+        StackPane root = (StackPane) sceneOne.getRoot();
 
-        Scene sceneOne = new Scene(root,350,250);
 
-        btn.setOnAction(actionEvent -> {
-            System.out.println("btn-test check");
 
-            SandboxTwo st = new SandboxTwo();
-            st.setSandboxTwo(stage, sceneOne);
+        
 
-        });
-        stage.setScene(sceneOne);
 
-        stage.setTitle("SandboxWindow - SceneOne");
-        stage.show();
+
+        setAndShowStage(stage, sceneOne, "SandboxWindow - SceneOne");
+
     }
 
     public static void main(String[] args) {
