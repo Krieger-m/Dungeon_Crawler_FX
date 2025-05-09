@@ -41,8 +41,11 @@ did a lot of process testing and implementation
 Sandbox was very helpful to optimize functionality   
 and de-bloat the code massively.  
    
-### v_0.1.9.1 (current)
+### v_0.1.9.1
 further clean-up and still not much functionality...   
 only wrestling with the factory-patterns structure   
-   
+
+### v_0.1.9.2 (current)
+started implementing the SceneFactory   
+more clean-up
   
