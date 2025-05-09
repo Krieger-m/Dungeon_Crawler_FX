@@ -6,29 +6,28 @@ import javafx.scene.control.Button;
 
 public class NewBtn{
 
+    //CHECK - new process test for ButtonFactory
+    // -------------------------------------------->>>
+
         //NOTE Variables
     String btnText ;
     String id;
-
     Button btn = new Button();
+
 
         //NOTE Constructors
     public NewBtn(){
         System.out.println("\n - NewBtn no-args-constructor check!");
     }
-
     public NewBtn(String btnText){
         this.btnText=btnText;
-
         btnIdConverter();
         setBtnTextAndId();
-
-        System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +
-                "---------------------------\n\n");
+        System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +"---------------------------\n\n");
     }
 
-        //NOTE Methods
 
+        //NOTE Methods
             // set btn id and text
     public void setBtnTextAndId(){
         this.btn.setId(this.id);
@@ -51,7 +50,6 @@ public class NewBtn{
         }
         this.id=result.toString().replaceAll("[^a-zA-Z0-9_]", "");
         System.out.println("\tresult of btnId: "+this.id);
-
     }
 
             // returns the button
@@ -68,9 +66,6 @@ public class NewBtn{
             }
         });
     }
-
-
-
 
 
 }

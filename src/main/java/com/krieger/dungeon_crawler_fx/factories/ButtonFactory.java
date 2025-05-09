@@ -1,116 +1,140 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
+import javafx.event.EventHandler;
 import javafx.scene.control.Button;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
-import javafx.scene.paint.Paint;
-import javafx.scene.text.Font;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.Map;
 
 import static com.krieger.dungeon_crawler_fx.factories.PaneFactory.colorCode;
 
 public class ButtonFactory  {
 
-            //NOTE Variables
+    //CHECK - new process implemented!
+    // --------------------------------->>>
 
-    private static String btnText;
+        //NOTE Variables
+            // Button-params
+    private String btnText;
+    private String id;
+    Button btn = new Button();
 
+            // Lists
     public static ArrayList<String> btnNames= new ArrayList<>();
-
     public static ArrayList<Button> btnList = new ArrayList<>();
 
 
-            //NOTE Constructor
-
+        //NOTE Constructor
+            // no-args-constructor
     public ButtonFactory(){
+        System.out.println("\n - NewBtn no-args-constructor check!");
     }
 
-    public static void updateButtonNames(String[] arr) {
-        btnNames.clear();
-        btnList.clear();
-        btnNames.addAll(List.of(arr));
+            // argument-constructor
+    public ButtonFactory(String btnText){
+        this.btnText=btnText;
+
+        btnIdConverter();
+        setBtnTextAndId();
+        colorSettingsDark();
+
+        System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +"---------------------------\n\n");
     }
 
-            //NOTE Methods
 
-                // returns a new button and sets String type to "actionBtn" for example
-    public static Button newButton(String text) {
-        Button newBtn = new Button(text);
-        newBtn.setId(text.toLowerCase() + "Btn");
-        newBtn.setFont(Font.font(16));
-        colorSettingsDark(newBtn);
-        newBtn.setOnMouseEntered(mouseEvent -> colorSettingsLight(newBtn));
-        newBtn.setOnMouseExited(mouseEvent -> colorSettingsDark(newBtn));
-        return newBtn;
+        //NOTE Methods
+            // set btn id and text
+    public void setBtnTextAndId(){
+        this.btn.setId(this.id);
+        this.btn.setText(this.btnText);
+        System.out.println("- 02 - setBtn @"+ this.btn.getText() +" (id: "+ this.btn.getId() +") - check!");
     }
 
-                // adding buttons to the btnList
-    public static List<Button> createNewButtons(String[] arr){
-        List<Button> btnList = new ArrayList<>();
-        //updateButtonNames(arr);
-        System.out.println("___________\n");
-        for (String s : arr) {
-            System.out.println(s.toLowerCase()+"Btn  - added");
-            btnList.add(newButton(s));
+            // converts the given btnName string to a valid button-id
+    public void btnIdConverter(){
+        System.out.println("---------------------------\n- 01 - btnIdConverter: "+ this.btn.getText() +" - check!");
+        String[] strings = this.btnText.replaceFirst("^\\d+", "").split("\\s+");
+        StringBuilder result = new StringBuilder(strings[0].toLowerCase());
+        System.out.println("\t"+this.btnText+"\n\t\tstrings[0] = "+ strings[0]);
+        if(strings.length >1){
+            for(int i=1; i< strings.length; i++){
+                System.out.println("\t\tstrings["+i+"] = "+ strings[i]);
+                result.append(Character.toUpperCase(strings[i].charAt(0))).append(strings[i].substring(1));
+            }
+            result.append("Btn");
         }
-        System.out.println("___________\n");
-        return btnList;
+        this.id=result.toString().replaceAll("[^a-zA-Z0-9_]", "");
+        System.out.println("\tresult of btnId: "+this.id);
     }
 
+            // returns the button
+    public Button getBtn(){
+        return this.btn;
+    }
 
-                // Button color: Standard dark-settings (normal mode)
-    public static void colorSettingsDark(Button btn){
-        btn.setBorder(new Border(
+            // btn actionHandler method
+    public void setHoverAction(){
+        this.btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                colorSettingsLight();
+            }
+        });
+        this.btn.setOnMouseExited(new EventHandler<MouseEvent>() {
+            @Override
+            public void handle(MouseEvent mouseEvent) {
+                colorSettingsDark();
+            }
+        });
+    }
+
+        // Button color: Standard dark-settings (normal mode)
+    public void colorSettingsDark(){
+        this.btn.setBorder(new Border(
                 new BorderStroke(
                         colorCode.get(4),
                         BorderStrokeStyle.SOLID,
                         new CornerRadii(3),
                         new BorderWidths(2),null)
         ));
-        btn.setBackground(new Background(
+        this.btn.setBackground(new Background(
                 new BackgroundFill(
                         colorCode.get(2),
                         new CornerRadii(3),
                         null)));
-        btn.setTextFill(colorCode.get(5));
+        this.btn.setTextFill(colorCode.get(5));
 
     }
 
-
-                // Button color: Standard hover-light-settings (hover mode)
-    public static void colorSettingsLight(Button btn){
-        btn.setBorder(new Border(
+        // Button color: Standard hover-light-settings (hover mode)
+    public void colorSettingsLight(){
+        this.btn.setBorder(new Border(
                 new BorderStroke(
                         colorCode.get(1),
                         BorderStrokeStyle.SOLID,
                         new CornerRadii(3),
                         new BorderWidths(2),null)
         ));
-        btn.setBackground(new Background(
+        this.btn.setBackground(new Background(
                 new BackgroundFill(
                         colorCode.get(4),
                         new CornerRadii(3),
                         null)
         ));
-        btn.setTextFill(colorCode.get(3));
+        this.btn.setTextFill(colorCode.get(3));
     }
 
 
         //NOTE Getters/Setters
-                // - btnText - but I guess they just sit here in their corner unused for now ...
-
-    public static String getBtnText() {
-        return btnText;
+            // - btnText - but I guess they just sit here in their corner unused for now ...
+    public String getBtnText() {
+        return this.btnText;
     }
-    public static void setBtnText(String btnText) {
-        ButtonFactory.btnText = btnText;
+    public void setBtnText(String btnText) {
+        this.btnText = btnText;
     }
-
-
-
-
 
 
 }

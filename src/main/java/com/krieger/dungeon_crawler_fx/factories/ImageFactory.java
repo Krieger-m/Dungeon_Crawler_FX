@@ -1,10 +1,12 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
-import com.krieger.dungeon_crawler_fx.App;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
 public class ImageFactory  {
+
+    //CHECK - under construction!
+    // ---------------------------->>>
 
                 //NOTE Variables
     public String mainImgPath = "file:./images/start_scene.jpg";
@@ -12,14 +14,13 @@ public class ImageFactory  {
     public Image img;
     public ImageView imageView;
 
-                // TODO ImageList will be added here
-    //
 
                 //NOTE Constructors
                     // ImageView Constructor, returns ImageView type for further
                     // use in SceneHandler or in Sandbox App???
                     // we will see where the journey takes us (°͜°)
     public ImageFactory(){}
+
 
                 //NOTE Methods for returning elements
     public ImageView imageViewBuilder(String title) {
@@ -37,10 +38,10 @@ public class ImageFactory  {
         this.imageView.setImage(this.img);
     }
 
-
     public ImageView getImageView(){
         return this.imageView;
     }
+
 
                 //NOTE getter/setter
                     // imgPath
@@ -50,5 +51,6 @@ public class ImageFactory  {
     public void setImgPath(String imgPath) {
         this.mainImgPath = imgPath;
     }
+
 
 }

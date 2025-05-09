@@ -1,20 +1,16 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
-import com.krieger.dungeon_crawler_fx.controllers.MainController;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
-import javafx.scene.control.Button;
 import javafx.scene.layout.*;
-import javafx.scene.layout.Pane;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
-
-import java.util.ArrayList;
 import java.util.Map;
 
 public class PaneFactory {
 
             //NOTE Color Codes
+                // Map of the colors stored directly
     public static final Map<Integer, Paint> colorCode= Map.of(
             1, Color.web("#121217"),
             2,Color.web("#2E3339"),
@@ -25,80 +21,49 @@ public class PaneFactory {
 
 
             //NOTE Variables
-    //
-    // MainController mc = new MainController();
-
-
-
-
-    String[] paneNames = {"root","btnBox","mainContainer"};
-
-    public  HBox hBox;
+                // MainController mc = new MainController();
+    String id;
+    public   HBox hBox;
     public  VBox vBox;
     public  StackPane root;
 
 
-
-            //NOTE Constructor
+        //NOTE Constructor
     public PaneFactory(){
-
     }
 
-    public PaneFactory(HBox hBox, VBox vBox, StackPane root) {
-        this.hBox = hBox;
-        this.vBox = vBox;
-        this.root = root;
-    }
 
-    //NOTE Methods
-
-                // creates and returns a new Pane depending on the input parameters
-
+        //NOTE Methods
+                // creates and returns a new Pane subclass
     public HBox createHBox(String id) {
-        HBox hBox = new HBox();
-        hBox.setId(id);
-        hBox.setSpacing(20);
-        ButtonFactory.createNewButtons(MainController.mainSceneButtons);
-        hBox.setPadding(new Insets(40, 40, 40, 40));
-        System.out.println(id+" added");
-        return hBox;
+        this.id=id;
+        this.hBox = new HBox();
+        this.hBox.setId(this.id);
+        this.hBox.setSpacing(20);
+        this.hBox.setPadding(new Insets(40, 40, 40, 40));
+        System.out.println(" -- createHBox: "+this.id+" added");
+        return this.hBox;
     }
 
     public VBox createVBox(String id) {
-        VBox vBox = new VBox();
-        vBox.setId(id);
-        vBox.setMaxHeight(980);
-        vBox.setMinHeight(980);
-        System.out.println(id+" added");
-        return vBox;
+        this.id=id;
+        this.vBox = new VBox();
+        this.vBox.setId(this.id);
+        this.vBox.setMaxHeight(980);
+        this.vBox.setMinHeight(this.vBox.getMaxHeight());
+        System.out.println(" -- createVBox: "+this.id+" added");
+        return this.vBox;
     }
 
     public StackPane createStackPane(String id) {
-        StackPane root = new StackPane();
-        root.setAlignment(Pos.TOP_CENTER);
-        root.setBackground(new Background(new BackgroundFill(colorCode.get(3), null, null)));
-        System.out.println(id+" added");
-        return root;
+        this.id=id;
+        this.root = new StackPane();
+        this.root.setId(this.id);
+        this.root.setAlignment(Pos.TOP_CENTER);
+        this.root.setBackground(new Background(new BackgroundFill(colorCode.get(3), null, null)));
+        System.out.println(" -- createStackPane: "+this.id+" added");
+        return this.root;
     }
-    public Pane newPane(String id){
-        switch (id){
-            case "HBox","buttonBox","btnBox":{
-                this.hBox = createHBox(id);
-            }
-            case "VBox","mainContainer","mainBox": {
-                this.vBox= createVBox(id);
-            }
-            case "root","StackPane":{
-                this.root = createStackPane(id);
-            }
-            default: {
-                System.out.println("ERROR: Compatible types are: \"VBox, btnBox\", \"HBox, mainContainer\", \"root, StackPane\" ");
-            }break;
-        }
-        return null;
-    }
-
-
 
 
 }
