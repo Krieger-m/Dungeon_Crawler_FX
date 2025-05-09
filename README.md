@@ -42,7 +42,7 @@ Sandbox was very helpful to optimize functionality
 and de-bloat the code massively.  
    
 ### v_0.1.9.1 (current)
-further clean-up and still no functionality...   
+further clean-up and still not much functionality...   
 only wrestling with the factory-patterns structure   
    
   
