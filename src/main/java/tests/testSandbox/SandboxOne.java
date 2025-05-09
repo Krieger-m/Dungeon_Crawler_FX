@@ -2,7 +2,6 @@ package tests.testSandbox;
 
 import javafx.application.Application;
 import javafx.geometry.Pos;
-import javafx.scene.Node;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -10,20 +9,15 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-import java.util.ArrayList;
-
 public class SandboxOne extends Application {
         //NOTE Variables
 
-    ArrayList<Scene> sceneList = new ArrayList<>();
 
         //NOTE Constructors
     //
 
         //NOTE Methods
-    public void addSceneToList(Scene scene){
-        this.sceneList.add(scene);
-    }
+
 
     public void setAndShowStage(Stage x, Scene y, String title){
         x.setScene(y);
@@ -40,7 +34,7 @@ public class SandboxOne extends Application {
         container.setAlignment(Pos.CENTER);
         Button btn = new Button("PrepButton!");
         Label lbl = new Label("prep-stage test check");
-        Scene preparedScene = new Scene(root,350,250);
+        Scene preparedScene = new NewScene(root).getScene();
 
         container.getChildren().addAll(lbl,btn);
         root.getChildren().add(container);
@@ -49,7 +43,6 @@ public class SandboxOne extends Application {
             System.out.println("prepBtn-test check");
 
         });
-        addSceneToList(preparedScene);
 
         return preparedScene;
     }
@@ -63,7 +56,7 @@ public class SandboxOne extends Application {
         container.setAlignment(Pos.CENTER);
         Button btn = new Button("Back!");
         Label lbl = new Label("second-stage test");
-        Scene nextScene = new Scene(root,350,250);
+        Scene nextScene = new NewScene(root).getScene();
 
         container.getChildren().addAll(lbl,btn);
         root.getChildren().add(container);
@@ -73,7 +66,6 @@ public class SandboxOne extends Application {
 
             stage.setScene(previousScene);
         });
-        addSceneToList(nextScene);
         setAndShowStage(stage, nextScene, "SandboxWindow - SceneTwo");
     }
 
