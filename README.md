@@ -1,6 +1,6 @@
 # Dungeon_Crawler_FX
 Adventure game made with JavaFX  
-work in progress!  
+- work in progress - trying to implement creational-patterns  
    
 ### Preview
 <img src="images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">     
