@@ -8,7 +8,7 @@ import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class NewScene extends SandboxOne{
+public class NewScene{
         //NOTE Variables
 
 
