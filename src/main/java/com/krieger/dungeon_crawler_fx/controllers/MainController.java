@@ -6,9 +6,7 @@ public class MainController {
     // ----------------------------->>>
 
         //NOTE Variables
-    public static String[] mainSceneButtons = {"Search","Action","Inventory"};
-
-    public static String[] inventoryButtons = {"Use","Equip","combine","Back"};
+    //
 
 
         //NOTE Constructor

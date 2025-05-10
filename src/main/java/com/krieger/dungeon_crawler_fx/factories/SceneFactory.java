@@ -7,23 +7,27 @@ import java.util.ArrayList;
 
 public class SceneFactory {
 
-        //NOTE partly implemented for now
+    //CHECK partly implemented for now
 
 
         //NOTE Variables
 
     ArrayList<Scene> sceneList = new ArrayList<>();
-    PaneFactory pf = new PaneFactory();
+
+    Scene currentScene;
 
             //sizes     Height / Width
-    double[] sizes ={   1080,   800};
+    double[] sizes ={   1020,   800};
 
 
         //NOTE Constructors
             //
 
 
-        //NOTE Methods
+    public SceneFactory() {
+    }
+
+    //NOTE Methods
     public void setStageStuff(Stage stage){
 
         stage.setMinHeight(sizes[0]);
@@ -31,7 +35,7 @@ public class SceneFactory {
         stage.setMaxHeight(stage.getMinHeight());
         stage.setMaxWidth(stage.getMinWidth());
 
-        stage.setTitle("Dungeon_Adventure_V0.1.9.1");
+        stage.setTitle("Dungeon_Adventure_V0.1.9.2");
     };
 
 

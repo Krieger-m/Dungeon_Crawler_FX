@@ -22,7 +22,9 @@ public class ButtonFactory  {
     Button btn = new Button();
 
             // Lists
-    public static ArrayList<String> btnNames= new ArrayList<>();
+    public static String[] startScreenButtons = {"New Adventure","Load Game", "Options","Exit"};
+    public static String[] mainSceneButtons = {"Search","Action","Inventory"};
+    public static String[] inventoryButtons = {"Use","Equip","Combine", "Back"};
     public static ArrayList<Button> btnList = new ArrayList<>();
 
 
@@ -40,7 +42,7 @@ public class ButtonFactory  {
         setBtnTextAndId();
         colorSettingsDark();
 
-        System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +"---------------------------\n\n");
+        System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +"---------------------------\n");
     }
 
 
@@ -63,8 +65,8 @@ public class ButtonFactory  {
                 System.out.println("\t\tstrings["+i+"] = "+ strings[i]);
                 result.append(Character.toUpperCase(strings[i].charAt(0))).append(strings[i].substring(1));
             }
-            result.append("Btn");
         }
+        result.append("Btn");
         this.id=result.toString().replaceAll("[^a-zA-Z0-9_]", "");
         System.out.println("\tresult of btnId: "+this.id);
     }
@@ -74,7 +76,7 @@ public class ButtonFactory  {
         return this.btn;
     }
 
-            // btn actionHandler method
+            // btn hover-actionHand method
     public void setHoverAction(){
         this.btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
@@ -124,6 +126,14 @@ public class ButtonFactory  {
                         null)
         ));
         this.btn.setTextFill(colorCode.get(3));
+    }
+
+    public static void addButtonsToList(String[] names){
+        for (String s:ButtonFactory.mainSceneButtons) {
+            ButtonFactory newBtn = new ButtonFactory(s);
+            newBtn.setHoverAction();
+            ButtonFactory.btnList.add(newBtn.getBtn());
+        }
     }
 
 

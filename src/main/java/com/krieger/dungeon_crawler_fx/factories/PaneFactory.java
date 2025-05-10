@@ -2,15 +2,18 @@ package com.krieger.dungeon_crawler_fx.factories;
 
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
+import javafx.scene.control.Button;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
+
+import java.util.ArrayList;
 import java.util.Map;
 
 public class PaneFactory {
 
-            //NOTE Color Codes
-                // Map of the colors stored directly
+        //NOTE Color Codes
+            // Map of the colors stored directly
     public static final Map<Integer, Paint> colorCode= Map.of(
             1, Color.web("#121217"),
             2,Color.web("#2E3339"),
@@ -20,8 +23,8 @@ public class PaneFactory {
     );
 
 
-            //NOTE Variables
-                // MainController mc = new MainController();
+        //NOTE Variables
+            // MainController mc = new MainController();
     String id;
     public   HBox hBox;
     public  VBox vBox;
@@ -29,12 +32,21 @@ public class PaneFactory {
 
 
         //NOTE Constructor
+
+    /**
+     * No-argument constructor for the PaneFactory
+     */
     public PaneFactory(){
     }
 
 
         //NOTE Methods
-                // creates and returns a new Pane subclass
+
+        /**
+         * Create and return a new HBox providing its ID
+         * @param id HBox(btnBox) ID
+         * @return HBox this.hBox
+         */
     public HBox createHBox(String id) {
         this.id=id;
         this.hBox = new HBox();
@@ -45,6 +57,11 @@ public class PaneFactory {
         return this.hBox;
     }
 
+        /**
+         * Create and return a new VBox providing its ID
+         * @param id VBox(mainContainer) ID
+         * @return VBox this.vBox
+         */
     public VBox createVBox(String id) {
         this.id=id;
         this.vBox = new VBox();
@@ -55,6 +72,11 @@ public class PaneFactory {
         return this.vBox;
     }
 
+        /**
+         * Create and return a new StackPane providing its ID
+         * @param id StackPane(root) ID
+         * @return StackPane this.root
+         */
     public StackPane createStackPane(String id) {
         this.id=id;
         this.root = new StackPane();
@@ -64,6 +86,7 @@ public class PaneFactory {
         System.out.println(" -- createStackPane: "+this.id+" added");
         return this.root;
     }
+
 
 
 }

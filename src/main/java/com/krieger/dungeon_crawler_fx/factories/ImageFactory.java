@@ -9,48 +9,54 @@ public class ImageFactory  {
     // ---------------------------->>>
 
                 //NOTE Variables
-    public String mainImgPath = "file:./images/start_scene.jpg";
-    public String inventoryImgPath = "file:./images/inventory_bg.jpg";
-    public Image img;
+    public static String startScreenPath = "images/start_screen.jpg";
+    public static String mainImgPath = "file:./images/main_scene.jpg";
+    public static String inventoryImgPath = "file:./images/inventory_bg.jpg";
+
+    public Image image;
     public ImageView imageView;
 
 
-                //NOTE Constructors
-                    // ImageView Constructor, returns ImageView type for further
-                    // use in SceneHandler or in Sandbox App???
-                    // we will see where the journey takes us (°͜°)
-    public ImageFactory(){}
+        //NOTE Constructors
+    /**
+     * Constructor for the new ImageView
+     * @param path provides the Image-path
+     */
+    public ImageFactory(String path){
+        updateImageView(path);
+    }
 
 
-                //NOTE Methods for returning elements
-    public ImageView imageViewBuilder(String title) {
-        this.img = new Image(this.mainImgPath);
-        this.imageView = new ImageView(img);
-        this.imageView.setId(title);
+        //NOTE Methods
+    /**
+     * is updating the ImageView
+     * @param  path is the path to the new Image
+     */
+    public void updateImageView(String path) {
+        this.image = new Image(path);
+        this.imageView = new ImageView(image);
+        ImageViewSettings();
+    }
+
+    /**
+     * sets the ImageView settings (height, width)
+     * NO PARAMS
+     */
+    public void ImageViewSettings(){
         this.imageView.setFitWidth(800);
         this.imageView.setPreserveRatio(true);
-        return imageView;
-    }
+    };
 
-    public void updateImage(String path){
-        this.mainImgPath= path;
-        this.img = new Image(this.mainImgPath);
-        this.imageView.setImage(this.img);
-    }
 
+        //NOTE getter/setter
+    /**
+     * returns finished ImageView
+     * @return this.imageView
+     */
     public ImageView getImageView(){
         return this.imageView;
     }
 
-
-                //NOTE getter/setter
-                    // imgPath
-    public String getImgPath() {
-        return mainImgPath;
-    }
-    public void setImgPath(String imgPath) {
-        this.mainImgPath = imgPath;
-    }
 
 
 }
