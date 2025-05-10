@@ -3,7 +3,7 @@ Adventure game made with JavaFX
 - work in progress - trying to implement creational-patterns
 
 ### Preview
-<img src="images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">     
+<img src="src/main/resources/com/krieger/dungeon_crawler_fx/images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">     
 
 - preview of the inventory-screen will follow
 

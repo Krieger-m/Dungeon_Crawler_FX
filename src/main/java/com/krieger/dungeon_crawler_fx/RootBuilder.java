@@ -20,8 +20,15 @@ public class RootBuilder {
 
 
         //NOTE Constructor
-    public RootBuilder(String[] btnNames, String imgPath) {
+    /**
+     * RootBuilder constructor
+     * @param id ID of the new root
+     * @param btnNames String[] of button names
+     * @param imgPath String containing image-path
+     */
+    public RootBuilder(String id, String[] btnNames, String imgPath) {
         makeNewRoot(btnNames, imgPath);
+        this.id = id;
     }
 
 
@@ -37,10 +44,10 @@ public class RootBuilder {
 
         StackPane root = new PaneFactory().createStackPane("root");
 
+        btnBox.getChildren().clear();
         btnBox.getChildren().addAll(ButtonFactory.btnList);
         mainContainer.getChildren().addAll(iV, btnBox);
         root.getChildren().add(mainContainer);
-        this.id= "testID";
         root.setId(this.id);
         this.root = root;
     }

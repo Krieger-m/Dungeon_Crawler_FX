@@ -25,10 +25,11 @@ public class App extends Application {
                 // supply a new root, that already contains all
                 // styled and positioned items from the other factories
                     // RootBuilder is provided with String-Arrays of the Scene-corresponding buttons and images
-
+    //CHECK continue here --------<<<<<<<<<<<
             StackPane root = new RootBuilder(
-                ButtonFactory.mainSceneButtons,
-                ImageFactory.mainImgPath
+                "mainRoot",
+                ButtonFactory.inventoryButtons,
+                ImageFactory.inventoryImgPath
             ).getRoot();
 
             Scene currentScene = new Scene(root,PaneFactory.colorCode.get(3));
@@ -37,7 +38,8 @@ public class App extends Application {
 
                 //NOTE trying out a new approach on all the stage-stuff here
 
-            System.out.println(root.getParent());
+            System.out.println("root.getParent(): "+root.getParent());
+
 
             SceneFactory sf = new SceneFactory();
             sf.setStageStuff(stage);
@@ -45,11 +47,13 @@ public class App extends Application {
             stage.setScene(currentScene);
             stage.show();
 
-        } catch(Throwable e){
+        } catch(Exception e){
                     // Exception not thrown for now
         }
 
     }
+
+
     public static void main(String[] args) {
         launch();
     }

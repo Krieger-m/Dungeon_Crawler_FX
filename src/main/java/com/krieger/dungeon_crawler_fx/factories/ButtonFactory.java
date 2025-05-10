@@ -19,7 +19,7 @@ public class ButtonFactory  {
             // Button-params
     private String btnText;
     private String id;
-    Button btn = new Button();
+    Button btn;
 
             // Lists
     public static String[] startScreenButtons = {"New Adventure","Load Game", "Options","Exit"};
@@ -36,6 +36,7 @@ public class ButtonFactory  {
 
             // argument-constructor
     public ButtonFactory(String btnText){
+        this.btn = new Button();
         this.btnText=btnText;
 
         btnIdConverter();
@@ -129,7 +130,7 @@ public class ButtonFactory  {
     }
 
     public static void addButtonsToList(String[] names){
-        for (String s:ButtonFactory.mainSceneButtons) {
+        for (String s:names) {
             ButtonFactory newBtn = new ButtonFactory(s);
             newBtn.setHoverAction();
             ButtonFactory.btnList.add(newBtn.getBtn());
