@@ -12,8 +12,8 @@ public class ImageFactory  {
 
         //NOTE Variables
 
-    public static String startScreenPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/start_screen.jpg";
-    public static String mainImgPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/main_scene.jpg";
+    public static String startScreenPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/start_screen_bg.jpg";
+    public static String mainImgPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/main_scene_bg.jpg";
     public static String inventoryImgPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/inventory_bg.jpg";
 
     public Image image;
@@ -40,6 +40,7 @@ public class ImageFactory  {
         this.imageView = new ImageView(image);
         ImageViewSettings();
         //this.imageView.setId();
+        setImgViewID(path);
     }
 
             //NOTE ----------------
@@ -47,7 +48,10 @@ public class ImageFactory  {
             //CHECK ---------------
     public void setImgViewID(String path){
         String[] s = path.split("/");
-        System.out.println(s[s.length-1]);
+        s=s[s.length-1].split("\\.");
+        System.out.println("s0: -->> "+s[0]);
+        this.imageView.setId(s[0]+"View");
+        System.out.println("this.imageView.getId(): "+ this.imageView.getId());
     }
 
     /**

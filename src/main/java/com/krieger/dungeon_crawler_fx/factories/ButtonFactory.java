@@ -1,12 +1,15 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
+import com.krieger.dungeon_crawler_fx.App;
+import com.krieger.dungeon_crawler_fx.RootAssembler;
+import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.*;
+import javafx.stage.Stage;
 
 import java.util.ArrayList;
-import java.util.List;
 
 import static com.krieger.dungeon_crawler_fx.factories.PaneFactory.colorCode;
 
@@ -29,19 +32,27 @@ public class ButtonFactory  {
 
 
         //NOTE Constructor
-            // no-args-constructor
+
+    /**No-argument constructor for the ButtonFactory
+     * NO PARAMS
+     */
     public ButtonFactory(){
-        System.out.println("\n - NewBtn no-args-constructor check!");
+        System.out.println("\n - NewBtn no-argument-constructor check!");
     }
 
-            // argument-constructor
+    /**
+     * Argument constructor for the ButtonFactory
+     * @param btnText provides the text for the new button
+     */
     public ButtonFactory(String btnText){
         this.btn = new Button();
         this.btnText=btnText;
 
+        setHoverAction();
         btnIdConverter();
         setBtnTextAndId();
         colorSettingsDark();
+        changeRoot();
 
         System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +"---------------------------\n");
     }
@@ -72,12 +83,32 @@ public class ButtonFactory  {
         System.out.println("\tresult of btnId: "+this.id);
     }
 
-            // returns the button
-    public Button getBtn(){
-        return this.btn;
+    public void changeRoot(){
+        this.btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                if (btn.getId().toLowerCase().contains("inventory")){
+                    App.root = new RootAssembler(
+                            "inventoryRoot",
+                            ButtonFactory.inventoryButtons,
+                            ImageFactory.inventoryImgPath
+                    ).getRoot();
+                }
+                if (btn.getId().toLowerCase().contains("adventure")){
+                    App.root = new RootAssembler(
+                            "mainRoot",
+                            ButtonFactory.mainSceneButtons,
+                            ImageFactory.mainImgPath
+                    ).getRoot();
+
+                }
+            }
+        });
     }
 
-            // btn hover-actionHand method
+    /**
+     * Sets the light/dark-theme change dynamics
+     */
     public void setHoverAction(){
         this.btn.setOnMouseEntered(new EventHandler<MouseEvent>() {
             @Override
@@ -93,7 +124,9 @@ public class ButtonFactory  {
         });
     }
 
-        // Button color: Standard dark-settings (normal mode)
+    /**
+     * Button color: Standard dark-settings (normal mode)
+     */
     public void colorSettingsDark(){
         this.btn.setBorder(new Border(
                 new BorderStroke(
@@ -106,12 +139,15 @@ public class ButtonFactory  {
                 new BackgroundFill(
                         colorCode.get(2),
                         new CornerRadii(3),
-                        null)));
+                        null)
+        ));
         this.btn.setTextFill(colorCode.get(5));
 
     }
 
-        // Button color: Standard hover-light-settings (hover mode)
+    /**
+     * Button color: Standard hover-light-settings (hover mode)
+     * */
     public void colorSettingsLight(){
         this.btn.setBorder(new Border(
                 new BorderStroke(
@@ -123,23 +159,32 @@ public class ButtonFactory  {
         this.btn.setBackground(new Background(
                 new BackgroundFill(
                         colorCode.get(4),
-                        new CornerRadii(3),
+                        new CornerRadii(5),
                         null)
         ));
         this.btn.setTextFill(colorCode.get(3));
     }
 
-    public static void addButtonsToList(String[] names){
+    /**
+     * Updates the button list according to the given param String[]
+     * @param names provides a String[] containing the names of the buttons
+     */
+    public static void updateButtonList(String[] names){
+        ButtonFactory.btnList.clear();
         for (String s:names) {
             ButtonFactory newBtn = new ButtonFactory(s);
-            newBtn.setHoverAction();
             ButtonFactory.btnList.add(newBtn.getBtn());
         }
     }
 
 
         //NOTE Getters/Setters
-            // - btnText - but I guess they just sit here in their corner unused for now ...
+
+    // returns the button
+    public Button getBtn(){
+        return this.btn;
+    }
+    // - btnText - but I guess they just sit here in their corner unused for now ...
     public String getBtnText() {
         return this.btnText;
     }

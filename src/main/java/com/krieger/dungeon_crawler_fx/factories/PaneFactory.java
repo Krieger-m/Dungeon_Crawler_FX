@@ -3,6 +3,7 @@ package com.krieger.dungeon_crawler_fx.factories;
 import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.control.Button;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.*;
 import javafx.scene.paint.Color;
 import javafx.scene.paint.Paint;
@@ -24,11 +25,8 @@ public class PaneFactory {
 
 
         //NOTE Variables
-            // MainController mc = new MainController();
     String id;
-    public   HBox hBox;
-    public  VBox vBox;
-    public  StackPane root;
+
 
 
         //NOTE Constructor
@@ -49,12 +47,13 @@ public class PaneFactory {
          */
     public HBox createHBox(String id) {
         this.id=id;
-        this.hBox = new HBox();
-        this.hBox.setId(this.id);
-        this.hBox.setSpacing(20);
-        this.hBox.setPadding(new Insets(40, 40, 40, 40));
+        HBox hBox = new HBox();
+        hBox.setId(this.id);
+        hBox.setSpacing(20);
+        hBox.setPadding(new Insets(40, 40, 40, 40));
         System.out.println(" -- createHBox: "+this.id+" added");
-        return this.hBox;
+        System.out.println("this.hBox name?: "+ hBox.getAccessibleRole().name());
+        return hBox;
     }
 
         /**
@@ -64,12 +63,12 @@ public class PaneFactory {
          */
     public VBox createVBox(String id) {
         this.id=id;
-        this.vBox = new VBox();
-        this.vBox.setId(this.id);
-        this.vBox.setMaxHeight(980);
-        this.vBox.setMinHeight(this.vBox.getMaxHeight());
+        VBox vBox = new VBox();
+        vBox.setId(this.id);
+        vBox.setPrefHeight(980);
+        vBox.setMinHeight(vBox.getPrefHeight());vBox.setMinHeight(vBox.getPrefHeight());
         System.out.println(" -- createVBox: "+this.id+" added");
-        return this.vBox;
+        return vBox;
     }
 
         /**
@@ -79,13 +78,15 @@ public class PaneFactory {
          */
     public StackPane createStackPane(String id) {
         this.id=id;
-        this.root = new StackPane();
-        this.root.setId(this.id);
-        this.root.setAlignment(Pos.TOP_CENTER);
-        this.root.setBackground(new Background(new BackgroundFill(colorCode.get(3), null, null)));
+        StackPane root = new StackPane();
+        root.setId(this.id);
+        root.setAlignment(Pos.TOP_CENTER);
+        root.setBackground(new Background(new BackgroundFill(colorCode.get(3), null, null)));
         System.out.println(" -- createStackPane: "+this.id+" added");
-        return this.root;
+        return root;
     }
+
+
 
 
 

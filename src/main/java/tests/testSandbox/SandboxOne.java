@@ -34,7 +34,7 @@ public class SandboxOne extends Application {
         container.setAlignment(Pos.CENTER);
         Button btn = new Button("PrepButton!");
         Label lbl = new Label("prep-stage test check");
-        Scene preparedScene = new NewScene(root).getScene();
+        Scene preparedScene = new Scene(root);
 
         container.getChildren().addAll(lbl,btn);
         root.getChildren().add(container);
@@ -56,7 +56,7 @@ public class SandboxOne extends Application {
         container.setAlignment(Pos.CENTER);
         Button btn = new Button("Back!");
         Label lbl = new Label("second-stage test");
-        Scene nextScene = new NewScene(root).getScene();
+        Scene nextScene = new Scene(root);
 
         container.getChildren().addAll(lbl,btn);
         root.getChildren().add(container);

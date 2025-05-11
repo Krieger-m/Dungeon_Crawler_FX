@@ -2,9 +2,12 @@ package tests.testSandbox;
 
 import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.stage.Stage;
 
-public class NewBtn{
+
+public class NewBtn extends SandboxTwo{
 
     //CHECK - new process test for ButtonFactory
     // -------------------------------------------->>>
@@ -12,22 +15,41 @@ public class NewBtn{
         //NOTE Variables
     String btnText ;
     String id;
-    Button btn = new Button();
+    Button btn;
 
 
         //NOTE Constructors
     public NewBtn(){
         System.out.println("\n - NewBtn no-args-constructor check!");
     }
+
     public NewBtn(String btnText){
+        this.btn = new Button();
         this.btnText=btnText;
         btnIdConverter();
         setBtnTextAndId();
+        btnHandler();
+        buttonAction();
         System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +"---------------------------\n\n");
     }
 
 
         //NOTE Methods
+
+    public void buttonAction(){
+        this.btn.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent actionEvent) {
+                Scene scene2= new NewScene().getScene();
+                Stage stage = new Stage();
+                stage.setTitle("SandboxTwo - 2nd stage");
+                stage.setScene(scene2);
+                System.out.println(stage.getScene());
+            }
+        });
+    }
+
+
             // set btn id and text
     public void setBtnTextAndId(){
         this.btn.setId(this.id);
