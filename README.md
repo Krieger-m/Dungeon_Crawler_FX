@@ -45,7 +45,13 @@ and de-bloat the code massively.
 further clean-up and still not much functionality...   
 only wrestling with the factory-patterns structure
 
-### v_0.1.9.2 (current)
+### v_0.1.9.2 and following
 started implementing the SceneFactory   
-more clean-up
+more clean-up, clean-up, even more clean-up and optimizations.   
+ButtonFactory improved and basically also all the other factories :D   
   
+### v_0.1.9.5 (current)
+ran into a problem with swapping scenes in a reliable and safe way that does not use lots of performance.   
+will take a closer look at how I can solve this one.   
+seems to be pretty tricky since I need to learn more stuff and paradigms.   
+   
