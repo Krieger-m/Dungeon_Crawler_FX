@@ -5,9 +5,12 @@ Adventure game made with JavaFX
 ### Preview
 <img src="src/main/resources/com/krieger/dungeon_crawler_fx/images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto">     
 
-- preview of the inventory-screen will follow   
+- preview of the inventory-screen will follow
 
-### v_0.1.9.5 (current)
+### v_0.2.0.0 (current)
+clean-up and some rework  
+  
+### v_0.1.9.5 
 ran into a problem with swapping scenes in a reliable and safe way that does not use lots of performance.   
 will take a closer look at how I can solve this one.   
 seems to be pretty tricky since I need to learn more stuff and paradigms.  
