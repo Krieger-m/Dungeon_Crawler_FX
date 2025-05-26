@@ -23,8 +23,6 @@ public class RootAssembler extends App{
     private VBox mainContainer;
     private HBox btnBox;
     private ImageView iV;
-    private String[] btnNames;
-    private String imgPath;
 
     public static List<StackPane> rootList = new ArrayList<>();
 
@@ -36,8 +34,6 @@ public class RootAssembler extends App{
      * @param imgPath String containing image-path
      */
     public RootAssembler(String[] btnNames, String imgPath) {
-        this.btnNames=btnNames;
-        this.imgPath= imgPath;
         prepareRoot(btnNames, imgPath);
 
        
@@ -58,7 +54,6 @@ public class RootAssembler extends App{
         this.root = (StackPane)new PaneFactory("root","rootContainer").getElement();
 
         updateElements();
-        App.getcStage();
     }
 
     public StackPane getRoot (){
@@ -75,6 +70,8 @@ public class RootAssembler extends App{
             this.root.getChildren().clear();
             this.root.getChildren().add(this.mainContainer);
         }
+
+        rootList.add(this.root);
     }
 
 }

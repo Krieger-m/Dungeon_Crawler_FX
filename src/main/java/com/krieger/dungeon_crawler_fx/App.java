@@ -4,9 +4,11 @@ import com.krieger.dungeon_crawler_fx.factories.ButtonFactory;
 import com.krieger.dungeon_crawler_fx.factories.ImageFactory;
 import com.krieger.dungeon_crawler_fx.factories.PaneFactory;
 
+import com.krieger.dungeon_crawler_fx.factories.StageController;
 import javafx.application.Application;
 import javafx.scene.Node;
 import javafx.scene.Scene;
+import javafx.scene.control.Button;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
@@ -18,16 +20,14 @@ public class App extends Application {
     //public static Stage stage;
     public static Scene currentScene;
 
-    private static Stage cStage;
+    private Stage stage;
 
-    public static Stage getcStage(){
-        return cStage;
-    }
 
     //NOTE start()-method
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage primaryStage) {
+        stage = new Stage();
 
         try{
                 //NOTE new RootFactory to supply a new root, that already contains all
@@ -44,7 +44,6 @@ public class App extends Application {
     //CHECK -------------------------------------------->>>>>>>>
     //NOTE -------------------------------------------->>>>>>>>
 
-            cStage = stage;
 
             root = new RootAssembler(
                 ButtonFactory.startScreenButtons,
@@ -53,7 +52,7 @@ public class App extends Application {
 
            // stage = new StageFactory().getStage();
 
-            currentScene = new Scene(root,PaneFactory.colorCode.get(3));
+            currentScene = new Scene(root);
 
 
                 //NOTE trying out a new approach on all the stage-stuff here
@@ -67,6 +66,7 @@ public class App extends Application {
             stage.setScene(currentScene);
             stage.show();
 
+            menuActions(stage);
 
 
 
@@ -74,8 +74,50 @@ public class App extends Application {
                     // Exception not thrown for now
         }
 
+
+
+    }
+    void switchToScene2 () {
+
+        Scene scene2 = new Scene(
+                new RootAssembler(ButtonFactory.mainSceneButtons,ImageFactory.mainImgPath).getRoot());
+
+        this.stage.setScene(scene2);
     }
 
+
+    public void menuActions(Stage stage1){
+
+        for (Button b: ButtonFactory.btnList){
+            System.out.println("\t\t\t\t"+b.getId());
+
+            switch(b.getId().toLowerCase()){
+
+                case "newadventurebtn" :
+
+                    b.setOnAction(e-> {
+                        System.out.println("\n\t\t //-- adventureBtn works!1");
+                        System.out.println(RootAssembler.rootList.size());
+
+                        StageController s = new StageController(stage1,ButtonFactory.mainSceneButtons, ImageFactory.mainImgPath);
+
+                    }
+                ); break;
+
+                case "inventorybtn" :
+
+                    b.setOnAction(e-> {
+                                System.out.println("\n\t\t //-- inventory works!1");
+                                System.out.println(RootAssembler.rootList.size());
+
+                                StageController s = new StageController(stage1,ButtonFactory.inventoryButtons,
+                                        ImageFactory.inventoryImgPath);
+
+                            }
+                    );break;
+            }
+        }
+    }
 
     public static void main(String[] args) {
         launch(args);

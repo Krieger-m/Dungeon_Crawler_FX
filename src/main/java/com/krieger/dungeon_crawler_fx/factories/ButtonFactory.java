@@ -1,8 +1,5 @@
 package com.krieger.dungeon_crawler_fx.factories;
 
-import com.krieger.dungeon_crawler_fx.App;
-import com.krieger.dungeon_crawler_fx.RootAssembler;
-import javafx.event.ActionEvent;
 import javafx.event.EventHandler;
 import javafx.scene.control.Button;
 import javafx.scene.input.MouseEvent;
@@ -46,6 +43,7 @@ public class ButtonFactory  {
         setBtnTextAndId();
         colorSettingsDark();
 
+
         System.out.println("- 03 - NewBtn: "+ this.btn.getId() +" btnText argument-constructor - check!"+"\n" +"---------------------------\n");
     }
 
@@ -75,6 +73,8 @@ public class ButtonFactory  {
         System.out.println("\tresult of btnId: "+this.id);
     }
 
+// STAGE ///////////////////////////
+
 
 
     /**
@@ -84,8 +84,8 @@ public class ButtonFactory  {
     public static void updateButtonList(String[] names){
         ButtonFactory.btnList.clear();
         for (String s:names) {
-            ButtonFactory newBtn = new ButtonFactory(s);
-            ButtonFactory.btnList.add(newBtn.getBtn());
+            Button newBtn = new ButtonFactory(s).getBtn();
+            ButtonFactory.btnList.add(newBtn);
         }
     }
 
