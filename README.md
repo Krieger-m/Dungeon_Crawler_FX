@@ -10,7 +10,7 @@ Adventure game made with JavaFX
 ### v_0.2.0.0 (current)
 clean-up and some rework  
   
-### v_0.1.9.5 
+### v_0.1.9.5 and following
 ran into a problem with swapping scenes in a reliable and safe way that does not use lots of performance.   
 will take a closer look at how I can solve this one.   
 seems to be pretty tricky since I need to learn more stuff and paradigms.  
