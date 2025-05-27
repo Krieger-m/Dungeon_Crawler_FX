@@ -29,7 +29,7 @@ public class App extends Application {
     public void start(Stage primaryStage) {
         stage = new Stage();
 
-        try{
+
                 //NOTE new RootFactory to supply a new root, that already contains all
                 // styled and positioned items from the other factories
                     // RootAssembler is provided with String-Arrays of the Scene-corresponding buttons and images
@@ -62,6 +62,8 @@ public class App extends Application {
             }
             System.out.println("--\troot ID: "+root.getId());
 
+                // want to start here testing xss
+            // - // currentScene.getStylesheets().add("/styles.css");
 
             stage.setScene(currentScene);
             stage.show();
@@ -70,20 +72,13 @@ public class App extends Application {
 
 
 
-        } catch(Exception e){
-                    // Exception not thrown for now
-        }
+
 
 
 
     }
-    void switchToScene2 () {
 
-        Scene scene2 = new Scene(
-                new RootAssembler(ButtonFactory.mainSceneButtons,ImageFactory.mainImgPath).getRoot());
 
-        this.stage.setScene(scene2);
-    }
 
 
     public void menuActions(Stage stage1){
@@ -93,28 +88,43 @@ public class App extends Application {
 
             switch(b.getId().toLowerCase()){
 
-                case "newadventurebtn" :
+                case "newadventurebtn" :{
 
                     b.setOnAction(e-> {
                         System.out.println("\n\t\t //-- adventureBtn works!1");
                         System.out.println(RootAssembler.rootList.size());
 
-                        StageController s = new StageController(stage1,ButtonFactory.mainSceneButtons, ImageFactory.mainImgPath);
+                        ButtonFactory.updateButtonList(ButtonFactory.mainSceneButtons);
+                        StageController s = new StageController(stage1,ButtonFactory.mainSceneButtons,
+                                ImageFactory.mainImgPath);
 
-                    }
-                ); break;
 
-                case "inventorybtn" :
+                        }
+                    );
+                } break;
+
+                case "inventorybtn" :{
 
                     b.setOnAction(e-> {
                                 System.out.println("\n\t\t //-- inventory works!1");
                                 System.out.println(RootAssembler.rootList.size());
 
+                        ButtonFactory.updateButtonList(ButtonFactory.inventoryButtons);
                                 StageController s = new StageController(stage1,ButtonFactory.inventoryButtons,
                                         ImageFactory.inventoryImgPath);
 
                             }
-                    );break;
+                    );
+                }break;
+
+                case "exitbtn" :{
+
+                    b.setOnAction(e-> {
+                                stage1.close();
+
+                            }
+                    );
+                }break;
             }
         }
     }

@@ -60,6 +60,10 @@ public class RootAssembler extends App{
         return this.root;
     }
 
+    public static void updateBtnList(){
+
+    }
+
     private void updateElements(){
         this.btnBox.getChildren().clear();
         this.btnBox.getChildren().addAll(ButtonFactory.btnList);

@@ -12,7 +12,7 @@ import static com.krieger.dungeon_crawler_fx.factories.PaneFactory.colorCode;
 
 public class ButtonFactory  {
 
-    //CHECK - no need for major changes for now
+    //CHECK -
     // --------------------------------->>>
 
         //NOTE Variables
