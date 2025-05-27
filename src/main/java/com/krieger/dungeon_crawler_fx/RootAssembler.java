@@ -1,8 +1,5 @@
 package com.krieger.dungeon_crawler_fx;
 
-import java.util.ArrayList;
-import java.util.List;
-
 import com.krieger.dungeon_crawler_fx.factories.ButtonFactory;
 import com.krieger.dungeon_crawler_fx.factories.ImageFactory;
 import com.krieger.dungeon_crawler_fx.factories.PaneFactory;
@@ -23,8 +20,6 @@ public class RootAssembler extends App{
     private VBox mainContainer;
     private HBox btnBox;
     private ImageView iV;
-
-    public static List<StackPane> rootList = new ArrayList<>();
 
 
         //NOTE Constructor
@@ -75,7 +70,6 @@ public class RootAssembler extends App{
             this.root.getChildren().add(this.mainContainer);
         }
 
-        rootList.add(this.root);
     }
 
 }
