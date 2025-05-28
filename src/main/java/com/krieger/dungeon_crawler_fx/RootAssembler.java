@@ -1,17 +1,20 @@
 package com.krieger.dungeon_crawler_fx;
 
+import java.util.List;
+
 import com.krieger.dungeon_crawler_fx.factories.ButtonFactory;
 import com.krieger.dungeon_crawler_fx.factories.ImageFactory;
 import com.krieger.dungeon_crawler_fx.factories.PaneFactory;
 
+import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.StackPane;
 import javafx.scene.layout.VBox;
 
-public class RootAssembler extends App{
+public class RootAssembler{
 
-    //CHECK - partly improved.
+    //CHECK - RootAssembly - partly improved.
     // ----------------------------->>>
 
         //NOTE Variables
@@ -20,6 +23,10 @@ public class RootAssembler extends App{
     private VBox mainContainer;
     private HBox btnBox;
     private ImageView iV;
+    private  List<Button> buttonList;
+
+    String[] currentNames;
+    String currentPath;
 
 
         //NOTE Constructor
@@ -29,7 +36,9 @@ public class RootAssembler extends App{
      * @param imgPath String containing image-path
      */
     public RootAssembler(String[] btnNames, String imgPath) {
-        prepareRoot(btnNames, imgPath);
+        this.currentNames = btnNames;
+        this.currentPath = imgPath;
+        prepareRoot();
 
        
 
@@ -37,10 +46,10 @@ public class RootAssembler extends App{
 
 
         //NOTE Methods
-    private void prepareRoot(String[] btnNames, String imgPath){
-        ButtonFactory.updateButtonList(btnNames);
+    private void prepareRoot(){
+        this.buttonList = new ButtonFactory(this.currentNames).getBtnList();        
 
-        this.iV = new ImageFactory(imgPath).getImageView();
+        this.iV = new ImageFactory(this.currentPath).getImageView();
 
         this.btnBox =  (HBox)new PaneFactory("hbox","buttonContainer").getElement();
 
@@ -55,13 +64,10 @@ public class RootAssembler extends App{
         return this.root;
     }
 
-    public static void updateBtnList(){
-
-    }
 
     private void updateElements(){
         this.btnBox.getChildren().clear();
-        this.btnBox.getChildren().addAll(ButtonFactory.btnList);
+        this.btnBox.getChildren().addAll(this.buttonList);
         this.mainContainer.getChildren().clear();
         this.mainContainer.getChildren().addAll(this.iV, this.btnBox);
         

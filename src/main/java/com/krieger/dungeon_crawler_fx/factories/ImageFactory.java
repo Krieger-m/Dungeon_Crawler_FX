@@ -3,21 +3,19 @@ package com.krieger.dungeon_crawler_fx.factories;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 
-import java.util.Map;
 
 public class ImageFactory  {
 
     //CHECK - ImageFactory -
     // ---------------------------->>>
 
+    
         //NOTE Variables
+    
+    private Image image;
+    private ImageView imageView;
 
-    public static String startScreenPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/start_screen_bg.jpg";
-    public static String mainImgPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/main_scene_bg.jpg";
-    public static String inventoryImgPath = "file:./src/main/resources/com/krieger/dungeon_crawler_fx/images/inventory_bg.jpg";
-
-    public Image image;
-    public ImageView imageView;
+    private String currentPath;
 
 
         //NOTE Constructors
@@ -26,28 +24,33 @@ public class ImageFactory  {
      * @param path provides the Image-path
      */
     public ImageFactory(String path){
-        updateImageView(path);
+        this.currentPath = path;
+        updateImageView();
     }
 
 
         //NOTE Methods
     /**
      * is updating the ImageView
-     * @param  path is the path to the new Image
+     * NO PARAMS
      */
-    public void updateImageView(String path) {
-        this.image = new Image(path);
-        this.imageView = new ImageView(image);
-        ImageViewSettings();
-        //this.imageView.setId();
-        setImgViewID(path);
+    private void updateImageView() {
+        try {
+            this.image = new Image(this.currentPath);
+            this.imageView = new ImageView(image);
+            ImageViewSettings();
+            setImgViewID();
+        } catch (Exception e) {
+            System.err.println("Error loading image: " + this.currentPath);
+            this.imageView = new ImageView(); // Fallback to an empty ImageView
+        }
     }
-
-            //NOTE ----------------
-            // Under Construction
-            //CHECK ---------------
-    public void setImgViewID(String path){
-        String[] s = path.split("/");
+    /**
+     * sets the ImageView ID based on the image path
+     * NO PARAMS
+     */
+    private void setImgViewID(){
+        String[] s = this.currentPath.split("/");
         s=s[s.length-1].split("\\.");
         System.out.println("s0: -->> "+s[0]);
         this.imageView.setId(s[0]+"View");
@@ -58,7 +61,7 @@ public class ImageFactory  {
      * sets the ImageView settings (height, width)
      * NO PARAMS
      */
-    public void ImageViewSettings(){
+    private void ImageViewSettings(){
         this.imageView.setFitWidth(800);
         this.imageView.setPreserveRatio(true);
     };
@@ -67,7 +70,7 @@ public class ImageFactory  {
         //NOTE getter/setter
     /**
      * returns finished ImageView
-     * @return this.imageView
+     * @return ImageView this.imageView
      */
     public ImageView getImageView(){
         return this.imageView;
