@@ -7,9 +7,9 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox alignment="CENTER" spacing="20.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/24" fx:controller="com.krieger.dungeon_adventure.Controller">
+<VBox fx:id="main_container" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krieger.dungeon_adventure.Controller">
   <padding>
-    <Insets bottom="20.0" left="20.0" right="20.0" top="20.0" />
+    <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
   </padding>
    <children>
       <ImageView fx:id="image_container" fitHeight="750.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
@@ -17,12 +17,12 @@
             <Image url="@images/start_screen_bg_neu.JPG" />
          </image>
       </ImageView>
-      <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+      <HBox fx:id="button_container" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
          <children>
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
-            <Button mnemonicParsing="false" text="Button" />
+            <Button fx:id="newGameButton" mnemonicParsing="false" text="New Game" />
+            <Button fx:id="loadGameButton" mnemonicParsing="false" text="Load Game" />
+            <Button fx:id="optionsButton" mnemonicParsing="false" text="Options" />
+            <Button fx:id="exitButton" mnemonicParsing="false" text="Exit" />
          </children>
       </HBox>
    </children>
