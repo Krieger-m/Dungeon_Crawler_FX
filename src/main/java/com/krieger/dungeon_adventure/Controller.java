@@ -6,6 +6,9 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Controller {
 
         // start-view.fxml
@@ -30,6 +33,11 @@ public class Controller {
     @FXML
     private Button optionsButton;
 
+    List<Button> buttonList = new ArrayList<>();
+
+        //CHECK - continue here
+        // hier weiter machen
+        // ---------------------------vv
 
 
 }
