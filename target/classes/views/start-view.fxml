@@ -7,14 +7,17 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="main_container" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krieger.dungeon_adventure.Controller">
+
+
+<VBox fx:id="main_container" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/24"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krieger.dungeon_adventure.StartScreenController">
   <padding>
     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
   </padding>
    <children>
       <ImageView fx:id="image_container" fitHeight="750.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="@images/start_screen_bg_neu.jpg" />
+            <Image url="@../images/start_screen_bg_neu.jpg" />
          </image>
       </ImageView>
       <HBox fx:id="button_container" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
@@ -27,3 +30,5 @@
       </HBox>
    </children>
 </VBox>
+
+        <?export javafx.scene.layout.VBOX?>

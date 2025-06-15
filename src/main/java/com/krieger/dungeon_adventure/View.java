@@ -1,7 +1,6 @@
 package com.krieger.dungeon_adventure;
 
 import javafx.fxml.FXMLLoader;
-import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 
@@ -15,39 +14,53 @@ public class View {
     private Stage newStage;
     private Scene scene;
 
-    private String fxmlPath = "/com/krieger/dungeon_adventure/start-view.fxml";
+
+
+    private String fxmlPath = "/views/start-view.fxml";
 
     public View() {
+        loadFXML();
 
-        loadView();
     }
 
-    private void loadView() {
+    private void loadFXML() {
         // Load the initial scene (e.g., start-view.fxml)
-
-        this.loader = new FXMLLoader(getClass().getResource(fxmlPath));
-            //this.loader.load();
-
-
+        this.loader = new FXMLLoader(getClass().getResource(getFxmlPath()));
     }
+
+
+
+    public void switchScene(String fxmlPath) throws IOException {
+        // Switch to a different scene by loading a new FXML file
+        setFxmlPath(fxmlPath);
+        loadFXML();
+        show();
+    }
+
 
     public void show()throws IOException{
         this.newStage = new Stage();
         this.newStage.setTitle("Dungeon Adventure");
-        FXMLLoader loader = getLoader();
-        this.scene = new Scene(loader.load());
-        this.newStage.setScene(scene);
+        System.out.print("- getLoader() called in View.show(): ");
+        this.loader = getLoader();
+        this.scene = new Scene(this.loader.load());
+        System.out.println(this.scene.getRoot().getChildrenUnmodifiable());
+        this.newStage.setScene(this.scene);
         this.newStage.show();
     }
 
     public FXMLLoader getLoader(){
 
         if(this.loader!=null) {
+            System.out.println("this.loader != null: "+this.loader);
             return this.loader;
         } else if(this.loader==null){
-            loadView();
+            System.out.println("this.loader == null, loading fxml again: "+this.loader);
+            loadFXML();
+            getLoader();
             return this.loader;
-        };
-        return null;
+        };  return getLoader();
     }
+    public String getFxmlPath() {return fxmlPath;}
+    public void setFxmlPath(String fxmlPath) {this.fxmlPath = fxmlPath;}
 }

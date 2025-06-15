@@ -6,7 +6,9 @@ Adventure game made with JavaFX
 > - Serious rewrite of the original Dungeon Crawler game. This time using the fxml features. Rewriting the whole thing from branch <a href="https://github.com/Krieger-m/Dungeon_Crawler_FX/tree/main">main<a/>
   
 ### Preview
-<img src="src/main/resources/com/krieger/dungeon_adventure/images/start_screen_bg_neu.jpg" alt="Preview-picture of the start screen" width="300px" height="auto"> <img src="src/main/resources/com/krieger/dungeon_adventure/images/preview.png" alt="Preview-picture of the main-window" width="300px" height="auto"> <img src="src/main/resources/com/krieger/dungeon_adventure/images/inventory_bg.jpg" alt="Preview-picture of the inventory-screen" width="300px" height="auto">    
+<img src="src/main/resources/images/start_screen_bg_neu.jpg" alt="Preview-picture of the start screen" width="300px" 
+height="auto"> <img src="src/main/resources/images/preview.png" alt="Preview-picture of the main-window" 
+width="300px" height="auto"> <img src="src/main/resources/images/inventory_bg.jpg" alt="Preview-picture of the inventory-screen" width="300px" height="auto">    
   
 - more previews will follow  
   
