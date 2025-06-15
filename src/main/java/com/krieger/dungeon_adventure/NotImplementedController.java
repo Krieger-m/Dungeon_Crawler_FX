@@ -11,6 +11,8 @@ import javafx.stage.Stage;
 
 public class NotImplementedController {
 
+    public static String previous;
+    
     @FXML
     private ResourceBundle resources;
 
