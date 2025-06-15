@@ -1,5 +1,5 @@
 # Dungeon_Crawler_FX
-Adventure game made with JavaFX
+Adventure game made with JavaFX  
 [!NOTE]
 - work in progress - trying to implement creational-patterns
 
