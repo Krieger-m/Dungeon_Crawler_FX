@@ -8,6 +8,15 @@ public class Client extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
+        // Initialize the main application window
+        primaryStage.setTitle("Dungeon Adventure");
+
+        // Load the initial scene (e.g., start-view.fxml)
+        View view = new View();
+        view.loadInitialScene(primaryStage);
+
+        // Show the primary stage
+        primaryStage.show();
 
     }
 

@@ -1,6 +1,7 @@
 package com.krieger.dungeon_adventure;
 
 import javafx.fxml.FXML;
+import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -38,6 +39,12 @@ public class Controller {
         //CHECK - continue here
         // hier weiter machen
         // ---------------------------vv
-
+    public void addButtonsToList() {
+        for(Node n : button_container.getChildren()){
+            Button b = (Button) n;
+            System.out.println(b.getText());
+            buttonList.add(b);
+        }
+    }
 
 }
