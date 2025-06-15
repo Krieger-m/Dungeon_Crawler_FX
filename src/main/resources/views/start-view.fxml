@@ -15,7 +15,7 @@
     <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
   </padding>
    <children>
-      <ImageView fx:id="image_container" fitHeight="750.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image_container" fitHeight="800.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
          <image>
             <Image url="@../images/start_screen_bg_neu.jpg" />
          </image>
@@ -31,4 +31,4 @@
    </children>
 </VBox>
 
-        <?export javafx.scene.layout.VBOX?>
+        <!-- <?export javafx.scene.layout.VBOX?> -->

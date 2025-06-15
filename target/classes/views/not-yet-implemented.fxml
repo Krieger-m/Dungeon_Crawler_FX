@@ -4,9 +4,9 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.layout.VBox?>
 
-<VBox fx:id="main_container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="950.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krieger.dungeon_adventure.NotImplementedController">
+<VBox fx:id="main_container" alignment="CENTER" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="900.0" prefWidth="800.0" spacing="20.0" xmlns="http://javafx.com/javafx/24" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krieger.dungeon_adventure.NotImplementedController">
    <children>
       <Label text="This feature is not implemented yet!" />
-      <Button mnemonicParsing="false" text="Back" />
+      <Button fx:id="backButton" mnemonicParsing="false" text="Back" />
    </children>
 </VBox>

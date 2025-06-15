@@ -1,18 +1,16 @@
 package com.krieger.dungeon_adventure;
 
+import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+
 import javafx.fxml.FXML;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
-
-import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Objects;
-import java.util.ResourceBundle;
+import javafx.stage.Stage;
 
 public class StartScreenController {
 
@@ -56,18 +54,23 @@ public class StartScreenController {
     }
 
     @FXML
-    public void placeholderAction(Button b){
-
-        b.setOnMouseClicked(e->{
+    public void placeholderAction(Button b) {
+        b.setOnMouseClicked(e -> {
             System.out.println("\t- Button clicked: " + b.getText());
             try {
-                new View().switchScene("/views/not-yet-implemented.fxml");
-            }
-            catch (IOException ex) {
+                // Get the current stage
+                Stage currentStage = (Stage) b.getScene().getWindow();
+
+                // Create a new View instance and set the stage
+                View view = new View();
+                view.show(currentStage); // This initializes newStage in the View class
+
+                // Switch the scene
+                view.switchScene("/views/not-yet-implemented.fxml");
+            } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
-
     }
 
 }
