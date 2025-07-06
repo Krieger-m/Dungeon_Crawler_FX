@@ -61,6 +61,8 @@ public class NewGameController {
                 // Create a new View instance and set the stage
                 View view = new View();
                 view.show(currentStage); // This initializes newStage in the View class
+                view.setPrevoiusScene(currentStage.getScene());
+
 
                 // Switch the scene
                 view.switchScene("/views/not-yet-implemented.fxml");

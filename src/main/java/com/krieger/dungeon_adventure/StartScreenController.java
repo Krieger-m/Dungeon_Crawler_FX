@@ -82,6 +82,7 @@ public class StartScreenController {
                 // Create a new View instance and set the stage
                 View view = new View();
                 view.show(currentStage); // This initializes newStage in the View class
+                view.setPrevoiusScene(currentStage.getScene());
 
                 // Switch the scene to the new game screen
                 view.switchScene("/views/new-game-view.fxml");

@@ -13,6 +13,7 @@ public class View {
     private FXMLLoader loader;
     private Stage newStage;
     private Scene scene;
+    private static Scene previousScene;
 
 
 
@@ -47,7 +48,7 @@ public class View {
     public void show(Stage s)throws IOException{
         this.newStage = s;
         this.newStage.setTitle("Dungeon Adventure");
-        System.out.print("- getLoader() called in View.show(): ");
+        System.out.print("-> getLoader() called in View.show(): ");
         this.loader = getLoader();
         this.scene = new Scene(this.loader.load());
         System.out.println(this.scene.getRoot().getChildrenUnmodifiable());
@@ -60,13 +61,17 @@ public class View {
         if(this.loader!=null) {
             System.out.println("this.loader != null: "+this.loader);
             return this.loader;
-        } else if(this.loader==null){
+        } else {
             System.out.println("this.loader == null, loading fxml again: "+this.loader);
             loadFXML();
             getLoader();
             return this.loader;
-        };  return getLoader();
+        }
     }
     public String getFxmlPath() {return fxmlPath;}
     public void setFxmlPath(String fxmlPath) {this.fxmlPath = fxmlPath;}
+
+    public void setPrevoiusScene(Scene _previousScene) {
+        previousScene = _previousScene;
+    }
 }
