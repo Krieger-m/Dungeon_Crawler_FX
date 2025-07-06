@@ -53,6 +53,13 @@
         <groupId>org.openjfx</groupId>
         <artifactId>javafx-maven-plugin</artifactId>
         <version>0.0.8</version>
+        <configuration>
+            <mainClass>com.krieger.dungeon_crawler_fx/com.krieger.dungeon_crawler_fx._drop.App</mainClass>
+            <launcher>app</launcher>
+            <jlinkZipName>app</jlinkZipName>
+            <jlinkImageName>app</jlinkImageName>
+
+        </configuration>
         <executions>
           <execution>
             <!-- Default configuration for running with: mvn clean javafx:run -->

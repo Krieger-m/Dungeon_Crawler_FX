@@ -1,0 +1,4 @@
+--patch-module
+com.krieger.dungeon_adventure=_
+--add-reads
+com.krieger.dungeon_adventure=ALL-UNNAMED
