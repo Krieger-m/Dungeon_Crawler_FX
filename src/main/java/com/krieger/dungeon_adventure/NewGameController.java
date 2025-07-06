@@ -1,14 +1,10 @@
 package com.krieger.dungeon_adventure;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.List;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
-import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
@@ -61,7 +57,7 @@ public class NewGameController {
                 // Create a new View instance and set the stage
                 View view = new View();
                 view.show(currentStage); // This initializes newStage in the View class
-                view.setPrevoiusScene(currentStage.getScene());
+                NotImplementedController.previous = "/views/new-game.fxml"; // Set the previous view path
 
 
                 // Switch the scene

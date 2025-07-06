@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 import javafx.fxml.FXML;
-import javafx.scene.Node;
 import javafx.scene.control.Button;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.HBox;
@@ -82,7 +81,7 @@ public class StartScreenController {
                 // Create a new View instance and set the stage
                 View view = new View();
                 view.show(currentStage); // This initializes newStage in the View class
-                view.setPrevoiusScene(currentStage.getScene());
+                NotImplementedController.previous = "/views/start-view.fxml"; // Set the previous view path
 
                 // Switch the scene to the new game screen
                 view.switchScene("/views/new-game-view.fxml");

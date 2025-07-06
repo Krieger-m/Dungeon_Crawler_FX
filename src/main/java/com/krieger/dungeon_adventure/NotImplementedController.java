@@ -12,7 +12,7 @@ import javafx.stage.Stage;
 public class NotImplementedController {
 
     public static String previous;
-    
+
     @FXML
     private ResourceBundle resources;
 
@@ -39,7 +39,9 @@ public class NotImplementedController {
             try {
                 // set the previous view to the current stage
                 View view = new View();
-                view.show(StartScreenController.currentStage); //
+                view.setFxmlPath(previous);
+
+                view.show((Stage)backButton.getScene().getWindow()); // This initializes newStage in the View class
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

@@ -13,7 +13,7 @@ public class View {
     private FXMLLoader loader;
     private Stage newStage;
     private Scene scene;
-    private static Scene previousScene;
+    private static Stage previousStage;
 
 
 
@@ -71,7 +71,12 @@ public class View {
     public String getFxmlPath() {return fxmlPath;}
     public void setFxmlPath(String fxmlPath) {this.fxmlPath = fxmlPath;}
 
-    public void setPrevoiusScene(Scene _previousScene) {
-        previousScene = _previousScene;
+    public void setPreviousStage(Stage _previousStage) {
+        previousStage = _previousStage;
+    }
+
+    public static Stage getPreviousStage() {
+        return previousStage;
     }
 }
+
