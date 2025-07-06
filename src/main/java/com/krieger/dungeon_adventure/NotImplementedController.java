@@ -37,15 +37,9 @@ public class NotImplementedController {
         backButton.setOnMouseClicked(e -> {
             System.out.println("\t- Button clicked: " + backButton.getText());
             try {
-                // Get the current stage
-                Stage currentStage = (Stage) backButton.getScene().getWindow();
-
-                // Create a new View instance and set the stage
+                // set the previous view to the current stage
                 View view = new View();
-                view.show(currentStage); // This initializes newStage in the View class
-
-                // Switch the scene
-                view.switchScene("/views/not-yet-implemented.fxml");
+                view.show(StartScreenController.currentStage); //
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

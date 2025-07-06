@@ -12,31 +12,29 @@ import javafx.scene.layout.HBox;
 import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
-public class StartScreenController {
+public class NewGameController {
 
-        // start-view.fxml
-    @FXML
-    private HBox button_container;
-
-    @FXML
-    private Button exitButton;
+    // start-view.fxml
 
     @FXML
     private ImageView image_container;
-
-    @FXML
-    private Button loadGameButton;
-
     @FXML
     private VBox main_container;
 
-    @FXML
-    private Button newGameButton;
 
     @FXML
-    private Button optionsButton;
+    private Button action_btn;
 
-    public static List<Button> buttonList = new ArrayList<>();
+    @FXML
+    private Button search_btn;
+
+    @FXML
+    private Button inventory_btn;
+
+    @FXML
+    private Button menu_btn;
+
+
 
     public static Stage currentStage;
 
@@ -44,10 +42,10 @@ public class StartScreenController {
     @FXML
     private void initialize() {
         // This will be called after FXML loading
-        newGameAction(newGameButton);
-        placeholderAction(optionsButton);
-        placeholderAction(loadGameButton);
-        exitAction(exitButton);
+        placeholderAction(action_btn);
+        placeholderAction(search_btn);
+        placeholderAction(inventory_btn);
+        menuAction(menu_btn);
 
     }
 
@@ -72,26 +70,7 @@ public class StartScreenController {
         });
     }
 
-    public void newGameAction(Button b){
-        b.setOnMouseClicked(e -> {
-            System.out.println("\t- Button clicked: " + b.getText());
-            try {
-                // Get the current stage
-                currentStage = (Stage) b.getScene().getWindow();
-
-                // Create a new View instance and set the stage
-                View view = new View();
-                view.show(currentStage); // This initializes newStage in the View class
-
-                // Switch the scene to the new game screen
-                view.switchScene("/views/new-game-view.fxml");
-            } catch (IOException ex) {
-                throw new RuntimeException(ex);
-            }
-        });
-    }
-
-    public void exitAction(Button b){
+    public void menuAction(Button b){
         b.setOnMouseClicked(e ->{
             System.out.println("\t- Button clicked: " + b.getText());
             // Close the application

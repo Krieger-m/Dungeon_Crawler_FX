@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+
+
+<VBox fx:id="main_container" alignment="CENTER" spacing="10.0" xmlns="http://javafx.com/javafx/24"
+      xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.krieger.dungeon_adventure.NewGameController">
+    <padding>
+        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+    </padding>
+    <children>
+        <ImageView fx:id="image_container" fitHeight="800.0" fitWidth="800.0" pickOnBounds="true" preserveRatio="true">
+            <image>
+                <Image url="@../images/main_scene_bg.jpg" />
+            </image>
+        </ImageView>
+        <HBox fx:id="button_container" alignment="CENTER" prefHeight="100.0" prefWidth="200.0" spacing="40.0">
+            <children>
+                <Button fx:id="action_btn" mnemonicParsing="false" text="Action" />
+                <Button fx:id="search_btn" mnemonicParsing="false" text="Search" />
+                <Button fx:id="inventory_btn" mnemonicParsing="false" text="Inventory" />
+                <Button fx:id="menu_btn" mnemonicParsing="false" text="Menu" />
+            </children>
+        </HBox>
+    </children>
+</VBox>
+
+        <!-- <?export javafx.scene.layout.VBOX?> -->
