@@ -27,7 +27,7 @@ public class StartScreenController {
                 Stage stage = (Stage) b.getScene().getWindow();
                 View view = new View("/views/not-yet-implemented.fxml");
                 view.show(stage);
-                view.switchScene();
+                // view.switchScene();
                 NotImplementedController.previous = "/views/start-view.fxml";
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -42,7 +42,7 @@ public class StartScreenController {
                 View view = new View("/views/new-game-view.fxml");
                 view.show(stage);
                 NotImplementedController.previous = "/views/start-view.fxml";
-                view.switchScene();
+                // view.switchScene();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

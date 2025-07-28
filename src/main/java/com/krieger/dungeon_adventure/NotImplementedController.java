@@ -13,7 +13,6 @@ public class NotImplementedController {
 
     @FXML
     void initialize() {
-        placeholderActionBack();
     }
 
     @FXML

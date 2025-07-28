@@ -28,7 +28,7 @@ public class NewGameController {
                 View view = new View("/views/not-yet-implemented.fxml");
                 view.show(stage);
                 NotImplementedController.previous = "/views/new-game-view.fxml";
-                view.switchScene();
+                // view.switchScene();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
@@ -37,8 +37,15 @@ public class NewGameController {
 
     public void menuAction(Button b) {
         b.setOnMouseClicked(e -> {
-            Stage stage = (Stage) b.getScene().getWindow();
-            stage.close();
+              try {
+                Stage stage = (Stage) b.getScene().getWindow();
+                View view = new View("/views/start-view.fxml");
+                view.show(stage);
+                NotImplementedController.previous = "/views/new-game-view.fxml";
+                // view.switchScene();
+            } catch (IOException ex) {
+                throw new RuntimeException(ex);
+            }
         });
     }
 }
