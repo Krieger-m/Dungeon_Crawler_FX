@@ -1,23 +1,26 @@
 package com.krieger.dungeon_adventure;
 
 import java.io.IOException;
+
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.stage.Stage;
 
-public class NewGameController {
+public class InventoryController {
 
-    @FXML private Button action_btn;
-    @FXML private Button search_btn;
-    @FXML private Button inventory_btn;
-    @FXML private Button menu_btn;
+    @FXML private Button useButton;
+    @FXML private Button equipButton;
+    @FXML private Button combineButton;
+    @FXML private Button inspectButton;
+    @FXML private Button backButton;
 
     @FXML
     private void initialize() {
-        placeholderAction(action_btn);
-        placeholderAction(search_btn);
-        inventoryAction(inventory_btn);
-        menuAction(menu_btn);
+        placeholderAction(useButton);
+        placeholderAction(equipButton);
+        placeholderAction(combineButton);
+        placeholderAction(inspectButton);
+        backAction(backButton);
     }
 
     @FXML
@@ -27,7 +30,7 @@ public class NewGameController {
                 Stage stage = (Stage) b.getScene().getWindow();
                 View view = new View("/views/not-yet-implemented.fxml");
                 view.show(stage);
-                NotImplementedController.previous = "/views/new-game-view.fxml";
+                NotImplementedController.previous = "/views/inventory-view.fxml";
                 // view.switchScene();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -35,13 +38,13 @@ public class NewGameController {
         });
     }
 
-    public void menuAction(Button b) {
+    public void backAction(Button b) {
         b.setOnMouseClicked(e -> {
               try {
                 Stage stage = (Stage) b.getScene().getWindow();
-                View view = new View("/views/start-view.fxml");
+                View view = new View("/views/new-game-view.fxml");
                 view.show(stage);
-                NotImplementedController.previous = "/views/new-game-view.fxml";
+                
                 // view.switchScene();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
@@ -62,4 +65,5 @@ public class NewGameController {
             }
         });
     }
+
 }
