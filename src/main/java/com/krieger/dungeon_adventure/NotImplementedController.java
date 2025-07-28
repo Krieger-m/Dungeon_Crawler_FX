@@ -12,7 +12,9 @@ public class NotImplementedController {
     @FXML private Button backButton;
 
     @FXML
-    void initialize() {}
+    void initialize() {
+        placeholderActionBack();
+    }
 
     @FXML
     public void placeholderActionBack() {

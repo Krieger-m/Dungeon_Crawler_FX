@@ -28,7 +28,7 @@ public class NewGameController {
                 View view = new View("/views/not-yet-implemented.fxml");
                 view.show(stage);
                 NotImplementedController.previous = "/views/new-game-view.fxml";
-                view.switchScene("/views/not-yet-implemented.fxml");
+                view.switchScene();
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }

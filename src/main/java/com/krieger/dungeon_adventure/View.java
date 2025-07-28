@@ -19,8 +19,8 @@ public class View {
         this.loader = new FXMLLoader(getClass().getResource(this.fxmlPath));
     }
 
-    public void switchScene(String fxmlPath) throws IOException {
-        FXMLLoader newLoader = new FXMLLoader(getClass().getResource(fxmlPath));
+    public void switchScene() throws IOException {
+        FXMLLoader newLoader = new FXMLLoader(getClass().getResource(this.fxmlPath));
         Scene newScene = new Scene(newLoader.load());
         this.stage.setScene(newScene);
         this.stage.show();
