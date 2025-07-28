@@ -8,11 +8,7 @@ public class Client extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception {
-
-
-        new View().show(primaryStage);
-
-
+        new View("/views/start-view.fxml").show(primaryStage);
     }
 
 

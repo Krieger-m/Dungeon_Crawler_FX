@@ -1,51 +1,28 @@
 package com.krieger.dungeon_adventure;
 
 import java.io.IOException;
-import java.net.URL;
-import java.util.ResourceBundle;
-
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
-import javafx.scene.layout.VBox;
 import javafx.stage.Stage;
 
 public class NotImplementedController {
 
     public static String previous;
 
-    @FXML
-    private ResourceBundle resources;
+    @FXML private Button backButton;
 
     @FXML
-    private URL location;
+    void initialize() {}
 
     @FXML
-    private VBox main_container;
-
-    @FXML
-    private Button backButton;
-
-    @FXML
-    void initialize() {
-        assert main_container != null : "fx:id=\"main_container\" was not injected: check your FXML file 'not-yet-implemented.fxml'.";
-
-    }
-
-
-     @FXML
     public void placeholderActionBack() {
         backButton.setOnMouseClicked(e -> {
-            System.out.println("\t- Button clicked: " + backButton.getText());
             try {
-                // set the previous view to the current stage
-                View view = new View();
-                view.setFxmlPath(previous);
-
-                view.show((Stage)backButton.getScene().getWindow()); // This initializes newStage in the View class
+                View view = new View(previous);
+                view.show((Stage) backButton.getScene().getWindow());
             } catch (IOException ex) {
                 throw new RuntimeException(ex);
             }
         });
     }
-
 }
